@@ -1,0 +1,30 @@
+# Turn on URL rewriting
+RewriteEngine On
+
+<Files "*.txt">
+Order Allow,Deny
+Deny from all
+</Files>
+
+# Installation directory
+RewriteBase /zaid
+
+# Protect hidden files from being viewed
+<Files .*>
+	Order Deny,Allow
+	Deny From All
+</Files>
+
+# Protect application and system files from being viewed
+RewriteRule ^(?:application|modules|system|views|controllers|libs|arf|config|lang|models)\b.* index.php/$0 [L]
+
+# Allow any files or directories that exist to be displayed directly
+RewriteCond ${REQUEST_URI} ^.+$
+RewriteCond %{REQUEST_FILENAME} \.(gif|jpe?g|png|js|css|swf|php|ico|pdf|xml)$ [OR]
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d [OR]
+RewriteCond %{REQUEST_FILENAME} -l
+RewriteRule ^ - [L]
+
+# Rewrite all other URLs to index.php/URL
+RewriteRule .* index.php?route=$0 [PT]
