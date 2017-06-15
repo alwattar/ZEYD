@@ -2,6 +2,7 @@
 class Controller {
     
     public function __construct(){
+        require_once('View.php');
         $this->view = new View();
         @session_start();
         $this->changeLang();
@@ -121,26 +122,6 @@ class Controller {
         return $output; 
     }
     
-    // check post values if empty 
-    public function checkPost($postName){
-        if(isset($_POST[$postName])){
-            if(!empty(trim($_POST[$postName])))
-                return true;
-            else
-                return false;
-        }else
-            return false;
-    }
-    // check get values if empty 
-    public function checkGet($getName){
-        if(isset($_GET[$getName])){
-            if(!empty(trim($_GET[$getName])))
-                return true;
-            else
-                return false;
-        }else
-            return false;
-    }
     // this will reduce the quality of image
     // EX: $new_tmp_img = reduce_img_quality($img_tmp, 40);
     public function reduce_img_quality($img_tmp , $quality) {

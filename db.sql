@@ -8,7 +8,6 @@ u_type enum('0','1', '2') not null default '2',
 u_lastlogin timestamp not null default current_timestamp,
 UNIQUE KEY (u_nick),
 UNIQUE KEY (u_email),
-INDEX u_loggedout_index(u_loggedout),
 INDEX u_lastlogin_index(u_lastlogin),
 INDEX u_type_index(u_type),
 INDEX u_name_index(u_name)

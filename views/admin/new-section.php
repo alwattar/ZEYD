@@ -7,6 +7,7 @@
 	<script src="<?php echo CK_F_PATH ?>/ckfinder.js"></script>
     </head>
     <body>
+	<a href="<?php echo URL ?>/admin">Main</a><br/>
 	<input name="" type="text" value=""/><br/><br/>
 	<input name="" type="text" value=""/><br/><br/>
 	<input name="" type="text" value=""/><br/><br/>
