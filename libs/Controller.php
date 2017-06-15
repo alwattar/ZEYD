@@ -2,7 +2,6 @@
 class Controller {
     
     public function __construct(){
-        require_once('View.php');
         $this->view = new View();
         @session_start();
         $this->changeLang();
