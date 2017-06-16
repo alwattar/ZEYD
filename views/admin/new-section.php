@@ -7,13 +7,13 @@
 	<script src="<?php echo CK_F_PATH ?>/ckfinder.js"></script>
     </head>
     <body>
-	<a href="<?php echo URL ?>/admin">Main</a><br/>
-	<input name="" type="text" value=""/><br/><br/>
-	<input name="" type="text" value=""/><br/><br/>
-	<input name="" type="text" value=""/><br/><br/>
-	<input name="" type="text" value=""/><br/><br/>
-	<input name="" id="section-icon" type="text" value=""/> <span onclick="finderPopup('section-icon')">Browse</span><br/><br/>
-	<button>Go</button>
+	<form action="" method="post">
+	    <a href="<?php echo URL ?>/admin">Main</a><br/>
+	    Section logo : <input name="sec-logo" id="sec-logo" size="48" type="text" value=""/> <span onclick="finderPopup('sec-logo')">Browse</span><br/><br/>
+	    Section Name : <input name="sec-name" type="text" size="40" placeholder="Title"/><br/><br/>
+	    <input name="_token" type="hidden" value="<?php echo $this->_token ?>"/>
+	    <button>Go</button>
+	</form>
     </body>
 
     <script src="<?php echo JS_PATH ?>/main.js"></script>

@@ -142,8 +142,8 @@ $articles_num = 8; // maximum articles on each section in main page
 	    <section class="sectionrow">
 		<div class="container text-center">
 		    <div class="row">
-			<img src="<?php echo URL ?><?php echo $sec->sec_logo ?>">
-			<h2><?php echo $sec->sec_name ?></h2>
+			<img src="<?php echo $sec->sec_logo ?>">
+			<h2><?php echo strip_tags(stripslashes($sec->sec_name)) ?></h2>
 			<?php
 			$acls = $aos($sec->sec_id);
 			?>

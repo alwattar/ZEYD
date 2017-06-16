@@ -21,15 +21,16 @@ class Admin extends Controller{
 
     // setup user session
     public function setupUserSession($sessionData){
-        $_SESSION["u_id"] = $sessionData->u_id;
-        $_SESSION["u_name"] = $sessionData->u_name;
-        $_SESSION["u_nick"] = $sessionData->u_nick;
-        $_SESSION["u_pass"] = $sessionData->u_pass;
-        $_SESSION["u_email"] = $sessionData->u_email;
-        $_SESSION["u_type"] = $sessionData->u_type;
-        $_SESSION["u_lastlogin"] = $sessionData->u_lastlogin;
+        $_SESSION['u_id'] = $sessionData->u_id;
+        $_SESSION['u_name'] = $sessionData->u_name;
+        $_SESSION['u_nick'] = $sessionData->u_nick;
+        $_SESSION['u_pass'] = $sessionData->u_pass;
+        $_SESSION['u_email'] = $sessionData->u_email;
+        $_SESSION['u_type'] = $sessionData->u_type;
+        $_SESSION['u_lastlogin'] = $sessionData->u_lastlogin;
     }
 
+    // login
     public function adminLogin(){
         if($this->checkUserSession() == false){
             if(isset($_POST['_token'])){
@@ -77,6 +78,32 @@ class Admin extends Controller{
     // New Section Method
     public function newSection(){
         if($this->checkUserSession() == true){
+            if(isset($_POST['_token'])){
+                $login_token = $this->protect($_POST['_token']);
+                $real_token = $_SESSION['_token'];
+                if($login_token === $real_token){
+                    
+                    $section_data = [
+                        'sec_name' => $this->protect($_POST['sec-name']),
+                        'sec_logo' => $this->protect($_POST['sec-logo']),
+                        'sec_user' => $_SESSION['u_id']
+                    ];
+                    $true_name = strlen($section_data['sec_name']) > 1;
+                    $true_logo = strlen($section_data['sec_logo']) > 1;
+                    if($true_name && $true_logo){
+                        $new_section_resp = $this->model->createSection($section_data);
+                        if($new_section_resp !== false){
+                            // echo $new_section_resp;
+                            echo "<br/> Done";
+                        }
+                    }else{
+                        echo 'Something went wrong';
+                    }
+                }
+                $this->view->_token = $this->genToken('_token');
+            }else{
+                $this->view->_token = $this->genToken('_token');
+            }
             $this->view->view("admin/new-section");
         }else{
             $this->redirect(URL . '/admin/index');            
@@ -150,6 +177,16 @@ class Admin extends Controller{
             $this->view->view("admin/new-article");
         }else{
             $this->redirect(URL . '/admin/login');
+        }
+    }
+
+
+    // Articles Manager method
+    public function manageArt(){
+        if($this->checkUserSession() === true){
+            $this->view->view('admin/manage-art');
+        }else{
+            $this->redirect(URL . '/admin/login');            
         }
     }
 }
