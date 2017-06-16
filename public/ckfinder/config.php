@@ -68,8 +68,8 @@ $config['backends'][] = array(
     'adapter'      => 'local',
     'baseUrl'      => '/zaid/public/ckfinder/userfiles/',
     // 'root'         => '', // Can be used to explicitly set the CKFinder user files directory.
-    'chmodFiles'   => 0777,
-    'chmodFolders' => 0777,
+    'chmodFiles'   => 0755,
+    'chmodFolders' => 0755,
     'filesystemEncoding' => 'UTF-8',
 );
 

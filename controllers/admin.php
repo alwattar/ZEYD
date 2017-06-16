@@ -78,7 +78,7 @@ class Admin extends Controller{
     // New Section Method
     public function newSection(){
         if($this->checkUserSession() == true){
-            if(isset($_POST['_token'])){
+            if(isset($_POST['_token']) && $this->checkUserSession()){
                 $login_token = $this->protect($_POST['_token']);
                 $real_token = $_SESSION['_token'];
                 if($login_token === $real_token){
@@ -184,6 +184,14 @@ class Admin extends Controller{
     // Articles Manager method
     public function manageArt(){
         if($this->checkUserSession() === true){
+
+            $articles = $this->model->getAllArticles();
+            if($articles !== false){
+                $this->view->articles = $articles;
+            }else{
+                $this->view->articles = [];
+            }
+            
             $this->view->view('admin/manage-art');
         }else{
             $this->redirect(URL . '/admin/login');            

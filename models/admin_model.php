@@ -38,5 +38,11 @@ class Admin_Model extends Model{
 
         return $new_sec;
     }
+
+    // get all articles
+    public function getAllArticles(){
+        $all_art = $this->db->table('articles')->at("inner join users on users.u_id = articles.acl_user")->select("articles.*,users.u_id, users.u_name");
+        return $all_art;
+    }
 }
 ?>
