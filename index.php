@@ -41,6 +41,7 @@ $r->addRoute("/admin/login","admin@adminLogin");
 $r->addRoute("/admin/new-article","admin@newArticle");
 $r->addRoute("/admin/new-section","admin@newSection");
 $r->addRoute("/admin/manage-art","admin@manageArt");
+$r->addRoute("/admin/manage-art/edit","admin@editArt");
 
 
 if(isset($_GET['route'])){
