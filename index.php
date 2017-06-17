@@ -35,14 +35,14 @@ require_once("./libs/Route.php");
 // index controller
 $r->addRoute("/index","index@index");
 // admin controller
-$r->addRoute("/admin","admin@index");
-$r->addRoute("/admin/index","admin@index");
-$r->addRoute("/admin/login","admin@adminLogin");
-$r->addRoute("/admin/new-article","admin@newArticle");
-$r->addRoute("/admin/new-section","admin@newSection");
-$r->addRoute("/admin/manage-art","admin@manageArt");
-$r->addRoute("/admin/manage-art/edit","admin@editArt");
-$r->addRoute("/admin/new-user","admin@newUser");
+$r->addRoute(ADMIN_BASE ,"admin@index");
+$r->addRoute(ADMIN_BASE . "/index","admin@index");
+$r->addRoute(ADMIN_BASE . "/login","admin@adminLogin");
+$r->addRoute(ADMIN_BASE . "/new-article","admin@newArticle");
+$r->addRoute(ADMIN_BASE . "/new-section","admin@newSection");
+$r->addRoute(ADMIN_BASE . "/manage-art","admin@manageArt");
+$r->addRoute(ADMIN_BASE . "/manage-art/edit","admin@editArt");
+$r->addRoute(ADMIN_BASE . "/new-user","admin@newUser");
 
 if(isset($_GET['route'])){
     $route = "/" . rtrim($_GET['route'],"/");

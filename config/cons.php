@@ -4,7 +4,8 @@ define('DEFAULT_LANG','ar');
 define("URL","/ZEYD"); // the base url If the Base is '/' set the value empty define("URL","");
 
 // admin path
-define("ADMIN_PATH", URL . "/admin");
+define("ADMIN_BASE","/admin");
+define("ADMIN_PATH", URL . ADMIN_BASE);
 define("PUBLIC_PATH", URL . "/public");
 define("IMG_PATH", PUBLIC_PATH . "/img");
 define("CSS_PATH", PUBLIC_PATH . "/css");
