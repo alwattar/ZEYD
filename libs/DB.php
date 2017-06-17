@@ -90,12 +90,15 @@ class DB extends PDO {
     }
 
     
-    public function update($set){
+    public function update($set, $arrValues = false){
         
         try{
             $this->sql = "UPDATE {$this->table} SET $set {$this->where}";
             $stmt = parent::prepare($this->sql);
-            $stmt->execute();
+            if($arrValues == false)
+                $stmt->execute();
+            elseif(is_array($arrValues))
+                $stmt->execute($arrValues);
             return $this;
         }catch(PDOException $e){
             echo $this->sql;

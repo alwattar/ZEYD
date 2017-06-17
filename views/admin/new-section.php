@@ -8,7 +8,7 @@
     </head>
     <body>
 	<form action="" method="post">
-	    <a href="<?php echo URL ?>/admin">Main</a><br/>
+	    <a href="<?php echo ADMIN_PATH ?>">Main</a><br/>
 	    Section logo : <input name="sec-logo" id="sec-logo" size="48" type="text" value=""/> <span onclick="finderPopup('sec-logo')">Browse</span><br/><br/>
 	    Section Name : <input name="sec-name" type="text" size="40" placeholder="Title"/><br/><br/>
 	    <input name="_token" type="hidden" value="<?php echo $this->_token ?>"/>

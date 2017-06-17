@@ -31,6 +31,15 @@ class Admin_Model extends Model{
         return $new_acl;
     }
 
+    // update new article
+    public function updateArticle($art_data){
+        $new_acl = $this->db->table('articles')
+                 ->at("WHERE acl_id = :acl_id")
+                 ->update('acl_section = :acl_section, acl_title = :acl_title, acl_lang = :acl_lang, acl_img = :acl_img, acl_content = :acl_content', $art_data);
+        echo var_dump($this->db);
+        return $new_acl;
+    }
+
     // insert new section
     public function createSection($section_data){
         $new_sec = $this->db->table('sections')
@@ -43,6 +52,14 @@ class Admin_Model extends Model{
     public function getAllArticles(){
         $all_art = $this->db->table('articles')->at("inner join users on users.u_id = articles.acl_user")->select("articles.*,users.u_id, users.u_name");
         return $all_art;
+    }
+
+
+    // get all articles
+    public function getArticleById($id){
+        $art = $this->db->table('articles')
+             ->at("inner join sections on sections.sec_id = articles.acl_section WHERE articles.acl_id = '". $id ."'")->select("articles.*,sections.sec_id, sections.sec_name");
+        return $art;
     }
 }
 ?>

@@ -197,5 +197,105 @@ class Admin extends Controller{
             $this->redirect(URL . '/admin/login');            
         }
     }
+
+
+    // Articles Editeor method
+    public function editArt(){
+        if($this->checkUserSession() === true){
+            
+            $sections = $this->model->getSections();
+            if($sections !== false && is_array($sections))  // if sections > 0
+                $this->view->sections = $sections;
+            else  // if sections == 0
+                $this->view->sections = [];
+
+            // Id of article
+            if(isset($_GET['id'])){
+                $id = intval($_GET['id']);
+                if($id == 0)  // there is no aricle with 0 id so if 0 we need to set i to default as 1
+                    $id = 1;
+                if($this->checkUserSession()){  // check the session
+                    // get the article
+                    $art = $this->model->getArticleById($id);
+                    if($art !== false){
+                        $art = $art[0];
+                        $this->view->art = $art;
+                    }else{
+                        $this->view->art = [];
+                    }
+
+                    if(isset($_POST['_token']) && $this->checkUserSession()){
+                        // get the article
+                        $art = $this->model->getArticleById($id);
+                        if($art !== false){
+                            $art = $art[0];
+                            $this->view->art = $art;
+                        }else{
+                            $this->view->art = [];
+                        }
+                        $edit_token = $this->protect($_POST['_token']);
+                        $real_token = $_SESSION['_token'];
+                        if($real_token === $edit_token){
+                            // article data to insert it into database
+                            // $this->protect() to escape injction
+                            $acl_section = $this->protect($_POST['acl-section']);
+                            $acl_title = $this->protect($_POST['acl-title']);
+                            $acl_lang = $this->protect($_POST['acl-lang']);
+                            $acl_date = $this->protect($_POST['acl-date']);
+                            $acl_img = $this->protect($_POST['acl-image']);
+                            $acl_content = $this->protect($_POST['acl-content']);
+                
+                            // lang must be 2 chars and en chars
+                            $true_lang = $this->withRule($acl_lang, REGEX_CHARS_LANG);
+                            // if there is content
+                            $true_content = strlen($acl_content) >= 1;
+                            $true_img = strlen($acl_img) >= 1;
+                            $true_date = strlen($acl_date) >= 1;
+                            $true_title = strlen($acl_title) >= 1;
+                            $true_section = strlen($acl_title) > 0;
+                
+                            // put data into array if lang is true
+                            if($true_lang === true // lang 2 chars
+                               && $true_content  // content not null
+                               && $true_img  // img not null
+                               && $true_date  // date not null
+                               && $true_title  // title not null
+                               && $true_section){  // section not null
+                                $artilce_data = [
+                                    'acl_id' => $id,
+                                    'acl_section' => $acl_section,
+                                    'acl_title' => $acl_title,
+                                    'acl_lang' => $acl_lang,
+                                    'acl_img' => $acl_img,
+                                    'acl_content' => $acl_content,
+                                ];
+
+                                // insert new article
+                                $new_acl = $this->model->updateArticle($artilce_data);
+                                if($new_acl !== false){
+                                    $this->redirect(ADMIN_PATH . "/manage-art#". $id);
+                                }else
+                                    echo "Something went wrong";
+                            }else{
+                                // something went wrong
+                            }
+                        }
+                        // regenerate token 
+                        $this->view->_token = $this->genToken('_token');
+                    }else{
+                        // generate token 
+                        $this->view->_token = $this->genToken('_token');
+                    }
+                }else{
+                    $this->redirect(URL . '/admin/login');
+                }
+            }else{
+                $this->redirect(URL . '/admin/login');
+            }
+            $this->view->view('admin/edit-art');
+        }else{
+            $this->redirect(URL . '/admin/login');
+        }
+    }
 }
 ?>

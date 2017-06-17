@@ -1,5 +1,5 @@
-<a href="<?php echo URL ?>/admin/new-article">New Article</a>
+<a href="<?php echo ADMIN_PATH ?>/new-article">New Article</a>
 <br/>
-<a href="<?php echo URL ?>/admin/new-section">New Section</a>
+<a href="<?php echo ADMIN_PATH ?>/new-section">New Section</a>
 <br/>
-<a href="<?php echo URL ?>/admin/manage-art">Manage Articles</a>
+<a href="<?php echo ADMIN_PATH ?>/manage-art">Manage Articles</a>
