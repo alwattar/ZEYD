@@ -163,8 +163,9 @@ $articles_num = 8; // maximum articles on each section in main page
 			    </div>
 			    <?php if($ac == $articles_num - 1) break; ?>
 			<?php } ?>
-			<span>--- المزيد ---</span>
+			
 		    </div>
+		    <span>--- المزيد ---</span>
 		</div>
 	    </section>
 	<?php } ?>
