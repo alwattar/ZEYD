@@ -1,7 +1,7 @@
 <?php
 
 define('DEFAULT_LANG','ar');
-define("URL","/zaid"); // the base url If the Base is '/' set the value empty define("URL","");
+define("URL","/ZEYD"); // the base url If the Base is '/' set the value empty define("URL","");
 
 // admin path
 define("ADMIN_PATH", URL . "/admin");
