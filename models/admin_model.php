@@ -61,5 +61,11 @@ class Admin_Model extends Model{
              ->at("inner join sections on sections.sec_id = articles.acl_section WHERE articles.acl_id = '". $id ."'")->select("articles.*,sections.sec_id, sections.sec_name");
         return $art;
     }
+
+    // delete article
+    public function deleteArtById($id){
+        $del = $this->db->table('articles')->at('WHERE acl_id = '. intval($id))->delete();
+        return $del;
+    }
 }
 ?>

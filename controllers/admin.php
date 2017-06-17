@@ -12,6 +12,7 @@ class Admin extends Controller{
 
     public function index(){
         if($this->checkUserSession() == true){
+            // view template
             $this->view->view("admin/index");
         }else{
             $this->redirect(URL . '/admin/login');
@@ -70,6 +71,7 @@ class Admin extends Controller{
                 // generate token
                 $this->view->_token = $this->genToken('_token');
             }
+            // view template
             $this->view->view("admin/login");
         }else{
             $this->redirect(URL . '/admin/index');
@@ -104,6 +106,7 @@ class Admin extends Controller{
             }else{
                 $this->view->_token = $this->genToken('_token');
             }
+            // view template
             $this->view->view("admin/new-section");
         }else{
             $this->redirect(URL . '/admin/index');            
@@ -162,7 +165,7 @@ class Admin extends Controller{
 
                         // insert new article
                         $new_acl = $this->model->newArticle($artilce_data);
-                        echo var_dump($new_acl);
+                        // echo var_dump($new_acl);
                     }else{
                         // something went wrong
                     }
@@ -174,6 +177,7 @@ class Admin extends Controller{
                 $this->view->_token = $this->genToken('_token');
             }
         
+            // view template
             $this->view->view("admin/new-article");
         }else{
             $this->redirect(URL . '/admin/login');
@@ -191,7 +195,19 @@ class Admin extends Controller{
             }else{
                 $this->view->articles = [];
             }
+
+            if(isset($_GET['delete'])){
+                $del_id = intval($_GET['delete']);
+                if($del_id !== 0){
+                    if($this->checkUserSession() === true){
+                        // delete article after check user session
+                        $del_resp = $this->model->deleteArtById($del_id);
+                        $this->redirect("./manage-art");
+                    }
+                }
+            }
             
+            // view template
             $this->view->view('admin/manage-art');
         }else{
             $this->redirect(URL . '/admin/login');            
@@ -292,6 +308,7 @@ class Admin extends Controller{
             }else{
                 $this->redirect(URL . '/admin/login');
             }
+            // view template
             $this->view->view('admin/edit-art');
         }else{
             $this->redirect(URL . '/admin/login');
