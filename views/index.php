@@ -165,6 +165,7 @@ $articles_num = 8; // maximum articles on each section in main page
 			<?php } ?>
 			<span>--- المزيد ---</span>
 		    </div>
+		</div>
 	    </section>
 	<?php } ?>
 	<section class="subscribe text-center">

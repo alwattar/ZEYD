@@ -2,11 +2,15 @@
 var baseUrl = '/zaid';
 
 // calender input
-$(".ui-datepicker").datepicker({
-    inline: true,
-    showOtherMonths: true,
-    dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-});
+try{
+    $(".ui-datepicker").datepicker({
+	inline: true,
+	showOtherMonths: true,
+	dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    });
+}catch(err){
+    console.log(err);
+}
 // this function to open finder popup to select image
 function finderPopup(inputId) {
     var finderPopup = CKFinder.popup( {
