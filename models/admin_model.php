@@ -15,6 +15,9 @@ class Admin_Model extends Model{
                ->at($u_cond)
                ->select("*");
 
+        $this->db->table('users')
+            ->at($u_cond)
+            ->update('u_lastlogin = NOW()');
         return $login;
     }
 

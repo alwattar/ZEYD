@@ -1,30 +1,22 @@
-# Turn on URL rewriting
-RewriteEngine On
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
 
-<Files "*.txt">
-Order Allow,Deny
-Deny from all
-</Files>
+    <Files "*.txt">
+       Order Allow,Deny
+       Deny from all
+    </Files>
+    
+    RewriteEngine On
+    RewriteBase /zaid
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(?:application|modules|system|views|controllers|libs|arf|config|lang|models)\b.* index.php/$0 [L]
 
-# Installation directory
-RewriteBase /zaid
+    # Handle Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ index.php?route=$1 [L,QSA]
 
-# Protect hidden files from being viewed
-<Files .*>
-	Order Deny,Allow
-	Deny From All
-</Files>
-
-# Protect application and system files from being viewed
-RewriteRule ^(?:application|modules|system|views|controllers|libs|arf|config|lang|models)\b.* index.php/$0 [L]
-
-# Allow any files or directories that exist to be displayed directly
-RewriteCond ${REQUEST_URI} ^.+$
-RewriteCond %{REQUEST_FILENAME} \.(gif|jpe?g|png|js|css|swf|php|ico|pdf|xml)$ [OR]
-RewriteCond %{REQUEST_FILENAME} -f [OR]
-RewriteCond %{REQUEST_FILENAME} -d [OR]
-RewriteCond %{REQUEST_FILENAME} -l
-RewriteRule ^ - [L]
-
-# Rewrite all other URLs to index.php/URL
-RewriteRule .* index.php?route=$0 [PT]
+</IfModule>

@@ -323,7 +323,7 @@ class Admin extends Controller{
                     $new_user_token = $this->protect($_POST['_token']);
                     $real_token = $_SESSION['_token'];
 
-                    if($new_user_token === $real_token){
+                    if($new_user_token rwww=== $real_token){
                         echo "True";
                     }
                     // Regenerate token 

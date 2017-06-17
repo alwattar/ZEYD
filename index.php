@@ -42,10 +42,17 @@ $r->addRoute("/admin/new-article","admin@newArticle");
 $r->addRoute("/admin/new-section","admin@newSection");
 $r->addRoute("/admin/manage-art","admin@manageArt");
 $r->addRoute("/admin/manage-art/edit","admin@editArt");
+$r->addRoute("/admin/new-user","admin@newUser");
 
+print_r($_GET);
 
 if(isset($_GET['route'])){
     $route = "/" . rtrim($_GET['route'],"/");
+    /*
+      if (strpos($route, 'index.php') !== false) {
+      $route = str_ireplace('index.php', 'index', $route);
+      }
+    */
     $r->getRoute($route);
 }else{
     Controller::redirect(URL . "/index");

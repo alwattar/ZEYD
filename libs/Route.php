@@ -26,7 +26,6 @@ class Route {
                     $arr_route .= $v . "/";
             }
         }
-
         if(array_key_exists($arr_route ,$this->routes)){
 
             $controller_file = explode("@",$this->routes[$arr_route]);
