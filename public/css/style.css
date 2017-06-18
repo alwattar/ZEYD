@@ -169,3 +169,130 @@ font-family: 'Lateef', cursive;*/
     margin:0 20px;
 }
 /****END************  socialpost  ***************/
+/*** START FOOTER SECTION ***/
+
+.ftfooter {
+
+    padding: 40px;
+    text-align: center;
+}
+
+.ftfooter div {
+    margin: 20px;
+}
+
+.ftfooter .tw-page {
+    display: inline;
+}
+
+footer {
+    direction: rtl;
+    padding: 20px 0;
+    color: #ffffff;
+    background: #0e0e0e
+}
+
+.footer-social ul {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-social ul li {
+    margin-left: 5px;
+    border-radius: 100%;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #2e2e2e;
+    background: white;
+    border-radius: 50%;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+.footer-social ul li:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.footer-social ul li:nth-child(1):hover {
+    background: #3b5999;
+}
+
+.footer-social ul li:nth-child(2):hover {
+    background: #55acee;
+}
+
+.footer-social ul li:nth-child(3):hover {
+    background: #a0522d;
+}
+
+.footer-social ul li:nth-child(4):hover {
+    background: #0077B5;
+}
+
+.footer-social ul li:nth-child(5):hover {
+    background: #cd201f;
+}
+
+.contact-us p {
+    color: #828282;
+    font-size: 15px;
+}
+
+.contact-us p .zaidemail {
+    color: #ffffff;
+}
+
+.contact-us p i {
+    color: #a6a6a6;
+}
+
+footer .row .zlfooter img {
+    margin: 70px 0px 25px 0px;
+    width: 250px;
+}
+
+footer .row .zlfooter div {
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.donatebankdiv h5 {
+    margin: 4px 0px 4px 0px;
+}
+
+.donatebankdiv h5 span {
+    color: #a6a6a6;
+}
+
+.donatebankdiv h6 {
+    margin: 0px 0px;
+}
+
+.donatebankdiv h6 span {
+    color: #a6a6a6;
+}
+
+.donatebank img {
+    float: right;
+    width: 50px;
+}
+
+.donatebank p {
+    direction: ltr;
+    float: right;
+    font-weight: bold
+}
+
+.copyrightfooter {
+    margin-top: 20px;
+    background: #060606;
+    padding: 25px;
+}
+
+
+/* END FOOTER SECTION */
