@@ -35,6 +35,7 @@ require_once("./libs/Route.php");
 // index controller
 $r->addRoute("/index","index@index");
 $r->addRoute("/section","index@viewSection");
+$r->addRoute("/post","index@viewPost");
 // admin controller
 $r->addRoute(ADMIN_BASE ,"admin@index");
 $r->addRoute(ADMIN_BASE . "/index","admin@index");

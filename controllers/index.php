@@ -37,6 +37,10 @@ class Index extends Controller{
     public function viewSection(){
         $this->view->view("section");
     }
+    // view post
+    public function viewPost(){
+        $this->view->view("post");
+    }
     
 }
 ?>
