@@ -236,20 +236,20 @@ font-family: 'Lateef', cursive;*/
 /****END************ SEC SECTION ***************/
 
 /****START************ page-header ***************/
-.page-header {
+.aritcal-post>.page-header {
     text-align: right;
 }
-.page-header {
+.aritcal-post>.page-header {
     background-color: #171717;
     border-bottom: 5px solid #CCC;
     border-top: 5px solid #384045;
-    margin: 0 0 35px 0;
+    margin: 35px 0 35px 0;
     min-height: 50px;
     padding: 20px 0;
     position: relative;
-    text-align: left;
+   
 }
-.page-header h1 {
+.aritcal-post>.page-header h1 {
     border-bottom: 5px solid #CCC;
     color: #FFF;
     display: inline-block;
@@ -261,6 +261,14 @@ font-family: 'Lateef', cursive;*/
     padding: 0 0 17px;
     position: relative;
     border-bottom-color: #0088cc;
+}
+.aritcal-post>div:nth-child(2){
+    text-align: right;
+}
+.aritcal-post>div:nth-child(2)>h2{
+    font-weight: bold;
+    color: #0088cc;
+    
 }
 /****END************ page-header ***************/
 

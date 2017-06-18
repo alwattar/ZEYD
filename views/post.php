@@ -60,14 +60,28 @@
 	</section>
 	
 	
-	<section class="page-header">    
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>الأخبار</h1>
+	<section class="aritcal-post">    
+        <div class="page-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>الأخبار</h1>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+        <div class="container">
+           <div class="row">
+               <h2>ملتقى الإخاء الأول</h2>
+               <p><i class="fa fa-calendar"></i> 2017\05\27</p>
+                <p><i class="fa fa-tag"></i><a href="#">الأخبار</a></p>
+           </div>
+        </div>
+        <div class="container">
+           <div class="row">
+               محتوايات المقالة 
+           </div>
+        </div>
     </section>
     
 	<footer class="hidden-xs">
