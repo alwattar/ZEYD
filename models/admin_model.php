@@ -87,10 +87,32 @@ class Admin_Model extends Model{
         return $users;
     }
 
+    // get user by id
+    public function getUserById($id){
+        $art = $this->db->table('users')
+             ->at("WHERE u_id = '". $id ."'")->select("*");
+        return $art;
+    }
+    
     // delete user
     public function deleteUserById($id){
         $del = $this->db->table('users')->at('WHERE u_id = '. intval($id))->delete();
         return $del;
+    }
+
+    // edit User
+    // update new article
+    public function editUser($user_data){
+        if(count($user_data) == 5){
+            $edit_user = $this->db->table('users')
+                       ->at("WHERE u_id = :u_id")
+                       ->update('u_name = :u_name, u_nick = :u_nick, u_email = :u_email, u_type = :u_type', $user_data);
+        }elseif(count($user_data) == 6){
+            $edit_user = $this->db->table('users')
+                       ->at("WHERE u_id = :u_id")
+                       ->update('u_name = :u_name, u_nick = :u_nick, u_email = :u_email, u_type = :u_type, u_pass = :u_pass', $user_data);
+        }
+        return $edit_user;
     }
 }
 ?>

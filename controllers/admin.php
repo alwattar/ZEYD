@@ -15,7 +15,7 @@ class Admin extends Controller{
             // view template
             $this->view->view("admin/index");
         }else{
-            $this->redirect(URL . '/admin/login');
+            $this->redirect(URL . ADMIN_BASE . '/login');
         }
     }
 
@@ -59,7 +59,7 @@ class Admin extends Controller{
                             // setup session for user
                             $this->setupUserSession($login);
                             // redirect to dashboard
-                            $this->redirect(URL . '/admin/index');
+                            $this->redirect(URL . ADMIN_BASE . '/index');
                         }else{
                             echo "Not valid";
                         }
@@ -74,7 +74,7 @@ class Admin extends Controller{
             // view template
             $this->view->view("admin/login");
         }else{
-            $this->redirect(URL . '/admin/index');
+            $this->redirect(URL . ADMIN_BASE . '/index');
         }
     }
     // New Section Method
@@ -109,7 +109,7 @@ class Admin extends Controller{
             // view template
             $this->view->view("admin/new-section");
         }else{
-            $this->redirect(URL . '/admin/index');            
+            $this->redirect(URL . ADMIN_BASE . '/index');            
         }
     }
     
@@ -180,7 +180,7 @@ class Admin extends Controller{
             // view template
             $this->view->view("admin/new-article");
         }else{
-            $this->redirect(URL . '/admin/login');
+            $this->redirect(URL . ADMIN_BASE . '/login');
         }
     }
 
@@ -215,7 +215,7 @@ class Admin extends Controller{
             // view template
             $this->view->view('admin/manage-art');
         }else{
-            $this->redirect(URL . '/admin/login');            
+            $this->redirect(URL . ADMIN_BASE . '/login');            
         }
     }
 
@@ -229,7 +229,7 @@ class Admin extends Controller{
                 $this->view->sections = $sections;
             else  // if sections == 0
                 $this->view->sections = [];
-
+            
             // Id of article
             if(isset($_GET['id'])){
                 $id = intval($_GET['id']);
@@ -308,15 +308,15 @@ class Admin extends Controller{
                         $this->view->_token = $this->genToken('_token');
                     }
                 }else{
-                    $this->redirect(URL . '/admin/login');
+                    $this->redirect(URL . ADMIN_BASE . '/login');
                 }
             }else{
-                $this->redirect(URL . '/admin/login');
+                $this->redirect(URL . ADMIN_BASE . '/login');
             }
             // view template
             $this->view->view('admin/edit-art');
         }else{
-            $this->redirect(URL . '/admin/login');
+            $this->redirect(URL . ADMIN_BASE . '/login');
         }
     }
 
@@ -386,7 +386,7 @@ class Admin extends Controller{
                 $this->view->view('admin/permission-denied');
             }
         }else{
-            $this->redirect(URL . '/admin/login');
+            $this->redirect(URL . ADMIN_BASE . '/login');
         }
     }
 
@@ -404,9 +404,14 @@ class Admin extends Controller{
                     if($del_id !== 0){
                         if($_SESSION['u_type'] == 0){
                             if($this->checkUserSession() === true){
-                                // delete article after check user session
-                                $del_resp = $this->model->deleteUserById($del_id);
-                                $this->redirect("./manage-users");
+                                if($_SESSION['u_id'] != $del_id){
+                                    // delete article after check user session
+                                    $del_resp = $this->model->deleteUserById($del_id);
+                                    $this->redirect("./manage-users");
+                                }else{
+                                    $this->view->view('admin/permission-denied');
+                                    die();
+                                }
                             }
                         }else{
                             $this->view->view('admin/permission-denied');
@@ -431,9 +436,97 @@ class Admin extends Controller{
                 $this->view->view('admin/permission-denied');
             }
         }else{
-            $this->redirect(URL . '/admin/login');
+            $this->redirect(URL . ADMIN_BASE . '/login');
         }
     }
+
+    // edit user
+    public function editUser(){
+        if($this->checkUserSession() === true){
+            if($_SESSION['u_type'] == 0){
+
+                // Id of article
+                if(isset($_GET['id'])){
+                    $id = intval($_GET['id']);
+                    if($id == 0)  // there is no aricle with 0 id so if 0 we need to set i to default as 1
+                        $this->redirect(URL . ADMIN_BASE . '/manage-users');
+                    if($this->checkUserSession()){  // check the session
+                        // get the article
+                        $usr = $this->model->getUserById($id);
+                        if($usr === false)
+                            $this->redirect(URL . ADMIN_BASE . '/manage-users');
+                        else{
+                            $this->view->usr = $usr[0];
+                            if(isset($_POST['_token'])){
+                                $edit_user_token = $this->protect($_POST['_token']);
+                                $real_token = $_SESSION['_token'];
+                                if($edit_user_token === $real_token){
+                                    // init user info and ptrotect it
+                                    $user_name = $this->protect($_POST['u-name']);
+                                    $user_nick = $this->protect($_POST['u-nick']);
+                                    $user_email = $this->protect($_POST['u-email']);
+                                    $user_type = $this->protect($_POST['u-type']);
+                                    // check if data not empty
+                                    $true_name = strlen($user_name) > 3;
+                                    $true_nick = strlen($user_nick) > 3;
+                                    $true_email = strlen($user_email) > 4;
+                                    $true_type = strlen($user_type) == 1;
+                                    // if not empty
+                                    if($true_name &&
+                                       $true_nick &&
+                                       $true_email &&
+                                       $true_type &&
+                                       $this->checkUserSession() == true &&
+                                       $_SESSION['u_type'] == 0){
+                                        // init data array
+                                        $user_data = [
+                                            'u_id' => $id,
+                                            'u_name' => $user_name,
+                                            'u_nick' => $user_nick,
+                                            'u_email' => $user_email,
+                                            'u_type' => $user_type,
+                                        ];
+                                        if(strlen(trim($_POST['u-password'])) > 0){
+                                            $user_data['u_pass'] = sha1($_POST['u-password']);
+                                        }
+                                        // create new user
+                                        $e_new_user = $this->model->editUser($user_data);
+                                        if($e_new_user !== false){
+                                            echo "Done<br/>";
+                                            $this->redirect(URL . ADMIN_BASE . '/manage-users#' . $id);
+                                        }else{
+                                            echo "<br/>User name exists<br/>";
+                                        }
+                                    }else{
+                                        // not cond satisf
+                                        echo "FILL PLEASE<br/>";
+                                    }
+                                }else{
+                                    // not _token satisf
+                                    echo "INVALID TOKEN<br/>";
+                                }
+                                // regenerate token 
+                                $this->view->_token = $this->genToken('_token');
+                            }else{
+                                // generate token 
+                                $this->view->_token = $this->genToken('_token');
+                            }
+                        }
+                    }
+                }else{
+                    $this->redirect(URL . ADMIN_BASE . '/manage-users');
+                }
+                
+                $this->view->view('/admin/edit-user');
+            }else{
+                $this->view->view('admin/permission-denied');                
+            }
+        }else{
+            $this->redirect(URL . ADMIN_BASE . '/login');
+        }
+    }
+    
+    
     // logout
     public function logout(){
         session_destroy();
