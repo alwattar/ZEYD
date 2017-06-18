@@ -32,6 +32,11 @@ class Index extends Controller{
         
         $this->view->view("index");
     }
+
+    // view Section
+    public function viewSection(){
+        $this->view->view("section");
+    }
     
 }
 ?>

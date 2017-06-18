@@ -1,5 +1,5 @@
 // BY TAREQ STARTS // 
-var baseUrl = '/zaid';
+var baseUrl = '/ZEYD';
 
 // calender input
 try{

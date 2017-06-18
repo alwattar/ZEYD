@@ -199,10 +199,15 @@ class Admin extends Controller{
             if(isset($_GET['delete'])){
                 $del_id = intval($_GET['delete']);
                 if($del_id !== 0){
-                    if($this->checkUserSession() === true){
-                        // delete article after check user session
-                        $del_resp = $this->model->deleteArtById($del_id);
-                        $this->redirect("./manage-art");
+                    if($_SESSION['u_type'] == 0){
+                        if($this->checkUserSession() === true){
+                            // delete article after check user session
+                            $del_resp = $this->model->deleteArtById($del_id);
+                            $this->redirect("./manage-art");
+                        }
+                    }else{
+                        $this->view->view('admin/permission-denied');
+                        die();
                     }
                 }
             }
@@ -317,14 +322,56 @@ class Admin extends Controller{
 
 
     public function newUser(){
-        if($this->checkUserSession() == true){
+        if($this->checkUserSession() == true){            
             if($_SESSION['u_type'] == 0){
                 if(isset($_POST['_token'])){
                     $new_user_token = $this->protect($_POST['_token']);
                     $real_token = $_SESSION['_token'];
-
+                    // if token true
                     if($new_user_token === $real_token){
-                        echo "True";
+                        // init user info and ptrotect it
+                        $user_name = $this->protect($_POST['u-name']);
+                        $user_nick = $this->protect($_POST['u-nick']);
+                        $user_email = $this->protect($_POST['u-email']);
+                        $user_pass = sha1($_POST['u-password']);
+                        $user_type = $this->protect($_POST['u-type']);
+                        // check if data not empty
+                        $true_name = strlen($user_name) > 3;
+                        $true_nick = strlen($user_nick) > 3;
+                        $true_email = strlen($user_email) > 4;
+                        $true_type = strlen($user_type) == 1;
+                        // if not empty
+                        if($true_name &&
+                           $true_nick &&
+                           $true_email &&
+                           $true_type &&
+                           $this->checkUserSession() == true &&
+                           $_SESSION['u_type'] == 0){
+
+                            // init data array
+                            $user_data = [
+                                'u_name' => $user_name,
+                                'u_nick' => $user_nick,
+                                'u_email' => $user_email,
+                                'u_pass' => $user_pass,
+                                'u_type' => $user_type,
+                                'u_lastlogin' => "NOW()"
+                            ];
+
+                            // create new user
+                            $c_new_user = $this->model->newUser($user_data);
+                            if($c_new_user !== false){
+                                echo "Done";
+                            }else{
+                                echo "<br/>User name exists<br/>";
+                            }
+                        }else{
+                            // not cond satisf
+                            echo "FILL PLEASE<br/>";
+                        }
+                    }else{
+                        // not _token satisf
+                        echo "INVALID TOKEN<br/>";
                     }
                     // Regenerate token 
                     $this->view->_token = $this->genToken('_token');
@@ -341,6 +388,12 @@ class Admin extends Controller{
         }else{
             $this->redirect(URL . '/admin/login');
         }
+    }
+
+    // logout
+    public function logout(){
+        session_destroy();
+        $this->redirect(ADMIN_PATH);
     }
 }
 ?>

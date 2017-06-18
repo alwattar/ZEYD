@@ -70,5 +70,14 @@ class Admin_Model extends Model{
         $del = $this->db->table('articles')->at('WHERE acl_id = '. intval($id))->delete();
         return $del;
     }
+
+    // Create new user
+    public function newUser($user_data){
+        $c_new_user = $this->db
+                    ->table('users')
+                    ->insert('(u_name, u_nick, u_email, u_pass, u_type, u_lastlogin) VALUES(:u_name, :u_nick, :u_email, :u_pass, :u_type, :u_lastlogin)', $user_data);
+
+        return $c_new_user;
+    }
 }
 ?>

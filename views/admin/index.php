@@ -5,3 +5,5 @@
 <a href="<?php echo ADMIN_PATH ?>/manage-art">Manage Articles</a>
 <br/>
 <a href="<?php echo ADMIN_PATH ?>/new-user">Create New User</a>
+<br/>
+<a href="<?php echo ADMIN_PATH ?>/logout">Logout</a>
