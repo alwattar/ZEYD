@@ -264,11 +264,22 @@ font-family: 'Lateef', cursive;*/
 }
 .aritcal-post>div:nth-child(2){
     text-align: right;
+    
 }
-.aritcal-post>div:nth-child(2)>h2{
-    font-weight: bold;
+.aritcal-post>div:nth-child(2)>.row{
+    margin-bottom: 40px;
+}
+.aritcal-post>div:nth-child(2)>.row>h2{
+    font-weight: 300;
+    font-size: 35px;
     color: #0088cc;
     
+}
+.aritcal-post>div:nth-child(2)>.row>p{
+    text-align: right;
+    direction: rtl;
+    display: inline-block;
+    margin: 0 5px;
 }
 /****END************ page-header ***************/
 
