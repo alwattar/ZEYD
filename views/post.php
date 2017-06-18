@@ -82,6 +82,18 @@
                محتوايات المقالة 
            </div>
         </div>
+        <hr>
+        <div class="container">
+           <div class="row">
+               <div class="col-md-3">المشاهدات :
+               <br>4000
+               </div>
+               <div class="col-md-6"> </div>
+               <div class="col-md-3">مشاركة تويتر</div>
+           </div>
+            
+        </div>
+        
     </section>
     
 	<footer class="hidden-xs">

@@ -281,6 +281,12 @@ font-family: 'Lateef', cursive;*/
     display: inline-block;
     margin: 0 5px;
 }
+.aritcal-post div:nth-child(5) .row div{
+    color:#555;
+    float: right;
+    text-align: right;
+    direction: rtl;
+}
 /****END************ page-header ***************/
 
 /****START************ FOOTER SECTION ***************/
