@@ -44,6 +44,7 @@ $r->addRoute(ADMIN_BASE . "/new-section","admin@newSection");
 $r->addRoute(ADMIN_BASE . "/manage-art","admin@manageArt");
 $r->addRoute(ADMIN_BASE . "/manage-art/edit","admin@editArt");
 $r->addRoute(ADMIN_BASE . "/new-user","admin@newUser");
+$r->addRoute(ADMIN_BASE . "/manage-users","admin@manageUsers");
 
 $r->addRoute(ADMIN_BASE . "/logout","admin@logout");
 

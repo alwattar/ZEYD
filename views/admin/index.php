@@ -6,4 +6,6 @@
 <br/>
 <a href="<?php echo ADMIN_PATH ?>/new-user">Create New User</a>
 <br/>
+<a href="<?php echo ADMIN_PATH ?>/manage-users">Manage Users</a>
+<br/>
 <a href="<?php echo ADMIN_PATH ?>/logout">Logout</a>

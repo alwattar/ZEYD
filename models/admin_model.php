@@ -79,5 +79,13 @@ class Admin_Model extends Model{
 
         return $c_new_user;
     }
+
+    // get all users
+
+    public function getAllUsers(){
+        $users = $this->db->table('users')->select("*");
+
+        return $users;
+    }
 }
 ?>

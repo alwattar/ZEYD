@@ -390,6 +390,34 @@ class Admin extends Controller{
         }
     }
 
+    public function manageUsers(){
+        if($this->checkUserSession() === true){
+            if($_SESSION['u_type'] == 0){
+                // get users from db
+                $users = $this->model->getAllUsers();
+                if($users === false)
+                    $users = [];
+
+
+                $this->view->userTypeAsText = function($num){
+                    $num = '' + $num;
+                    if($num === 0){
+                        return 'مدير';
+                    }elseif($num === 1){
+                        return 'مشرف';
+                    }else{
+                        return 'مراجع';
+                    }
+                };
+                $this->view->users = $users;
+                $this->view->view('admin/manage-users');
+            }else{
+                $this->view->view('admin/permission-denied');
+            }
+        }else{
+            $this->redirect(URL . '/admin/login');
+        }
+    }
     // logout
     public function logout(){
         session_destroy();
