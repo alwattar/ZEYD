@@ -399,6 +399,22 @@ class Admin extends Controller{
                     $users = [];
 
 
+                if(isset($_GET['delete'])){
+                    $del_id = intval($_GET['delete']);
+                    if($del_id !== 0){
+                        if($_SESSION['u_type'] == 0){
+                            if($this->checkUserSession() === true){
+                                // delete article after check user session
+                                $del_resp = $this->model->deleteUserById($del_id);
+                                $this->redirect("./manage-users");
+                            }
+                        }else{
+                            $this->view->view('admin/permission-denied');
+                            die();
+                        }
+                    }
+                }
+                
                 $this->view->userTypeAsText = function($num){
                     $num = '' + $num;
                     if($num === 0){

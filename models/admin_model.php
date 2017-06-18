@@ -81,11 +81,16 @@ class Admin_Model extends Model{
     }
 
     // get all users
-
     public function getAllUsers(){
         $users = $this->db->table('users')->select("*");
 
         return $users;
+    }
+
+    // delete user
+    public function deleteUserById($id){
+        $del = $this->db->table('users')->at('WHERE u_id = '. intval($id))->delete();
+        return $del;
     }
 }
 ?>
