@@ -141,6 +141,7 @@ font-family: 'Lateef', cursive;*/
     margin: 0 6px;
 }
 /****END************  SectionRow  ***************/
+
 /****START************  Subscribe  ***************/
 .subscribe{
     padding:30px 0;
@@ -163,13 +164,69 @@ font-family: 'Lateef', cursive;*/
     background: #d2322d
 }
 /****END************  Subscribe  ***************/
+
 /****START************  socialpost  ***************/
 .socialpost>.container>div{
     display: inline-block;
     margin:0 20px;
 }
 /****END************  socialpost  ***************/
-/*** START FOOTER SECTION ***/
+
+/****START************ SEC SECTION ***************/
+.sec-head{
+    padding:30px 0;
+}
+.sec-header{
+    padding:40px 0;
+    background: #F4F4F4
+}
+
+.sec-header>.container>.row>div{
+    float: right;
+    text-align: right;
+    direction: rtl;
+    margin-bottom: 30px;
+}
+
+
+.sec-header>.container>.row>div>img{
+    width: 100%;
+    height: 125px;
+    box-shadow: 1px 1px 5px #888888
+}
+.sec-header>.container>.row>div>h4{
+    font-size: 20px;
+    font-weight: 400;
+}
+.sec-header>.container>.row>div>p{
+    word-wrap: break-word;
+    text-align: justify;
+}
+.sec-header>.container>.row>div>p:nth-child(4){
+    color:#999;
+}
+.sec-header>.container>.row>div>p>i{
+    margin: 0 6px;
+}
+.pagenumber{
+    background: #F4F4F4;
+}
+.pagenumber div ul{
+    width: 300px;
+    margin: 30px auto;
+}
+.pagenumber div ul li{
+    display: inline-block;
+    background: white;
+    cursor: pointer;
+    padding:8px;
+    font-size: 22px;
+    color:#0088cc;
+    font-weight: bold;
+}
+/****END************ SEC SECTION ***************/
+
+/****START************ FOOTER SECTION ***************/
 
 .ftfooter {
 
@@ -295,4 +352,4 @@ footer .row .zlfooter div {
 }
 
 
-/* END FOOTER SECTION */
+/****END************ FOOTER SECTION ***************/
