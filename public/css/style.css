@@ -431,10 +431,10 @@ footer .row .zlfooter div {
     position: fixed;
     width: 100%;
     left: 0;
-    top: 70px;
-    z-index: 100;
+    top: 65px;
+    z-index: 300;
     border-top: 0;
     background: white;
     padding: 20px 0;
-    box-shadow: 2px 2px 15px gray;
+    box-shadow: 0px 9px 15px rgba(84, 84, 84, 0.4);
 }
