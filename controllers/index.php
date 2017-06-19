@@ -38,7 +38,7 @@ class Index extends Controller{
         // if set sec id get parameterss
         if(isset($_GET['sec'])){
             $id = intval($_GET['sec']);
-            if($id === 0) // if not
+            if($id <= 0) // if not
                 $this->redirect(URL . '/index');
             // get section info (name)
             $section = $this->model->getSectionById($id);
@@ -48,27 +48,36 @@ class Index extends Controller{
                 $articles = $this->model->getArticles($id);
                 if($articles !== false){
                     // articles count
-                    $arts_count = count($articles);
+                    $this->view->arts_count = count($articles);
                     // articles count number of articles in each page of section
-                    $number_of_arts = 8;
+                    $this->view->number_of_arts = 16;
                     // pages number of this section
-                    $max_pages = ceil($arts_count / $number_of_arts);
+                    $this->view->max_pages = ceil($this->view->arts_count / $this->view->number_of_arts);
                     // page number setted
                     if(isset($_GET["p"])){
-                        $pnum = intval($_GET['p']);
+                        $this->view->pnum = intval($_GET['p']);
+                        if($this->view->pnum <= 0)
+                            $this->redirect(URL . '/index');
+                        
                     }else
-                        $pnum = 1;
-                    if($pnum == 0){
-                        $pnum = 1;
+                        $this->view->pnum = 1;
+                    if($this->view->pnum == 0){
+                        $this->view->pnum = 1;
                     }
+
+                    $this->limit_to = $this->view->pnum * $this->view->number_of_arts; // 3 * 12 = 36
+                    $this->limit_from = $this->limit_to - $this->view->number_of_arts; // 36 - 12 = 24
+                    $articles = $this->model->getArticlesForPage($id, $this->limit_from, $this->view->number_of_arts);
+                    
                     $this->view->arts = $articles;
                 }else{
+                    $this->view->max_pages = 0;
                     $this->view->arts = [];
                 }
                 $this->view->view("section");
             }else{
-                echo "This section not exists";
-                $this->view->view("section"); // you can design page to show results as a nice view
+                echo "This section not exists<br/>";
+                $this->view->view("404"); // you can design page to show results as a nice view
             }
                 
         }else{

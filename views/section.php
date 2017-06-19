@@ -1,6 +1,9 @@
 <?php
+$ddlang = $this->dlang;
 $sec = $this->sec;
 $arts = $this->arts;
+$max_pages = $this->max_pages;
+$arts_count = $this->arts_count;
 ?>
 <!DOCTYPE html>
 <html>
@@ -142,7 +145,68 @@ $arts = $this->arts;
 	        </div>
 	    </div>
 	    <div class="text-center pagenumber">
-		<div class="row">
+				<?php
+				$num_a_b = 4;
+				if(isset($_GET['p']) && $_GET['p'] != '1'){
+				    echo "<a href='?p=". 1 ."'> First Page </a>"; // first button , you can style it
+				}
+				if(isset($_GET['p'])){
+				    echo "<a href='?p=". (intval($_GET['p']) - 1) ."'> Previus </a>"; // previuos button , you can style it
+				}
+				if(isset($_GET['p'])){
+				    $_GET['p'] = intval($_GET['p']);
+				    if($_GET['p'] >= $max_pages){
+					for($p = $max_pages - $num_a_b ; $p <= $max_pages; $p++){
+					    if($_GET['p'] != $p){
+						echo "<a href='?p={$p}'> {$p} </a>";
+					    }else{
+						echo $p; // this is current page
+					    }
+					    if($p > $max_pages) break;
+					}
+				    }elseif($_GET['p'] > 2){
+					for($p = $_GET['p'] - 2 ; $p <= $_GET['p'] + $num_a_b - 2; $p++){
+					    if($_GET['p'] != $p){
+						echo "<a href='?p={$p}'> {$p} </a>";
+					    }else{
+						echo $p; // this is current page also
+					    }
+					    if($p > $max_pages) break;
+					}
+				    }
+				    else{
+					for($p = $_GET['p'] ; $p <= $_GET['p'] + $num_a_b; $p++){
+					    if($_GET['p'] != $p){
+						echo "<a href='?p={$p}'> {$p} </a>";
+					    }else{
+						echo $p; // this is current page also
+					    }
+					    if($p > $max_pages) break;
+					}
+				    }
+				}else{
+				    for($p = 1 ; $p <= $num_a_b; $p++){
+					if($p > $max_pages) break;
+					if($p != 1){
+					    echo "<a href='?p={$p}'> {$p} </a>";
+					}else{
+					    echo $p; // this is current page also
+					}
+				    }
+				}
+				if(isset($_GET['p']) && $_GET['p'] == $max_pages){
+				    echo '';
+				}
+				elseif(isset($_GET['p']) && (intval($_GET['p']) + 1) < $max_pages){
+				    echo "<a href='?p=". (intval($_GET['p']) + 1) ."'> Next </a>";
+				}elseif(isset($_GET['p']) && (intval($_GET['p']) + 1) < $max_pages){
+				    echo "<a href='?p=" . (1 + 1) ."'> Next </a>"; // next button
+				}
+				if(isset($_GET['p']) && intval($_GET['p']) != $max_pages)
+				    echo "<a href='?p=". $max_pages ."'> Last Page </a>"; // first button , you can style it
+				?>
+		<br/>
+		<!-- <div class="row">
                     <ul>
 			<li><i class="fa fa-angle-double-left" aria-hidden="true"></i></li>
 			<li><i class="fa fa-angle-left" aria-hidden="true"></i></li>
@@ -152,7 +216,7 @@ $arts = $this->arts;
 			<li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
 			<li><i class="fa fa-angle-double-right" aria-hidden="true"></i></li>
 			
-                    </ul>
+                    </ul> -->
 		</div>	        
 	    </div>
 	</section>
