@@ -159,13 +159,13 @@ $articles_num = 8; // maximum articles on each section in main page
 				?>
                                 <p><?php echo $content ?></p>
 				<p><i class="fa fa-calendar"></i><?php echo $art->acl_date ?></p>
-				<p><i class="fa fa-tag"></i><a href="#"><?php echo $sec->sec_name ?></a></p>
+				<p><i class="fa fa-tag"></i><a href="<?php echo URL ?>/section&sec=<?php echo $sec->sec_id ?>"><?php echo strip_tags(stripslashes($sec->sec_name)) ?></a></p>
 			    </div>
 			    <?php if($ac == $articles_num - 1) break; ?>
 			<?php } ?>
 			
 		    </div>
-		    <span>--- المزيد ---</span>
+		    <span><a href="<?php echo URL ?>/section&sec=<?php echo $sec->sec_id ?>">--- المزيد ---</a></span>
 		</div>
 	    </section>
 	<?php } ?>

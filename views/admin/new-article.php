@@ -17,7 +17,6 @@ $sections = $this->sections;
 	<form action="" method="post">
 	    Article Section :
 	    <select name="acl-section">
-		<option value="1">-</option>
 		<?php foreach($sections as $sec){ ?>
 		    <option value="<?php echo $sec->sec_id ?>"><?php echo strip_tags(stripslashes($sec->sec_name)) ?></option>
 		<?php } ?>
