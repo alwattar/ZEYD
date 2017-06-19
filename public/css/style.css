@@ -28,8 +28,7 @@ font-family: 'Lateef', cursive;*/
     padding:0;
     margin: 0;
     box-sizing: border-box;
-    
-    font-family: DroidKufi-Regular, NotoSans-Regular;
+    font-family: DroidKufi-Regular, NotoSans-Regular, 'Roboto', 'Helvetica';
 }
 
 /****START*********** searchanddate **********/
@@ -508,3 +507,86 @@ input:-webkit-autofill:active {
     -webkit-text-fill-color: #444 !important;
     
 }
+
+/****START******** CONTROL PANEL *******/
+
+.sidebar{
+    position: absolute;
+    width: 275px;
+    height: 100%;
+    
+    
+    
+}
+.sidebar>div:nth-child(1){
+    position: absolute;
+    top:0;
+    left: 0;
+    background-image: url(../img/sidebar-1.jpg);
+    background-position: 0px -64px;
+    background-repeat: no-repeat;
+    width: 275px;
+    height: 100%;
+    z-index: -1;
+}
+.sidebar>div:nth-child(2){
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 275px;
+    height: 100%;
+    background: rgba(0, 0, 0,0.7);
+    z-index:-1;
+}
+.sidebar>div:nth-child(3){
+    z-index: 120;
+    padding:15px;
+    text-align: center;
+}
+.sidebar>div:nth-child(3)>h2{
+    margin-top: 60px;
+    color:white;
+}
+.sidebar>div:nth-child(3)>img{
+    width: 200px;
+    border-top: 0.5px white solid;
+    border-bottom: 0.5px white solid;
+    padding: 15px 0;
+    margin-bottom: 30px;
+}
+.sidebar>div:nth-child(3)>ul{
+    
+    padding:8px
+}
+.sidebar>div:nth-child(3)>ul>li{
+    text-align: left;
+    padding:10px;
+    list-style: none;
+    transition: all ease 0.4s;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+.sidebar>div:nth-child(3)>ul>li>a{
+    
+    color:white;
+    font-size: 15px;
+    font-weight: lighter;
+    cursor: pointer;
+    text-decoration: none;
+}
+.sidebar>div:nth-child(3)>ul>li>i{
+    color:white;
+    width:20px;
+    height:20px;
+    font-size: 18px;
+}
+.sidebar>div:nth-child(3)>ul>li:nth-child(1){
+    background: #e91e63;
+    
+}
+.sidebar>div:nth-child(3)>ul>li:hover{
+    background: rgba(200, 200, 200, 0.2);
+    border-radius: 5px;
+}
+
+/****END******** CONTROL PANEL *******/
