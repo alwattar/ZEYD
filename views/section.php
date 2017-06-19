@@ -157,6 +157,7 @@ $arts_count = $this->arts_count;
 				    $_GET['p'] = intval($_GET['p']);
 				    if($_GET['p'] >= $max_pages){
 					for($p = $max_pages - $num_a_b ; $p <= $max_pages; $p++){
+					    if($p < 1) continue;
 					    if($_GET['p'] != $p){
 						echo "<a href='?p={$p}'> {$p} </a>";
 					    }else{
@@ -166,6 +167,7 @@ $arts_count = $this->arts_count;
 					}
 				    }elseif($_GET['p'] > 2){
 					for($p = $_GET['p'] - 2 ; $p <= $_GET['p'] + $num_a_b - 2; $p++){
+					    if($p < 1) continue;
 					    if($_GET['p'] != $p){
 						echo "<a href='?p={$p}'> {$p} </a>";
 					    }else{

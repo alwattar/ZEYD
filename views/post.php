@@ -78,7 +78,7 @@ $art = $this->art;
            <div class="row">
                <h2><?php echo strip_tags(stripslashes($art->acl_title)) ?></h2>
                <p><i class="fa fa-calendar"></i> <?php echo strip_tags(stripslashes($art->acl_date)) ?></p>
-               <p><i class="fa fa-tag"></i><a href="#"><?php echo strip_tags(stripslashes($art->sec_name)) ?></a></p>
+               <p><i class="fa fa-tag"></i><a href="<?php echo URL ?>/section&sec=<?php echo $art->acl_section ?>"><?php echo strip_tags(stripslashes($art->sec_name)) ?></a></p>
            </div>
         </div>
         <div class="container">
