@@ -39,7 +39,24 @@ class Index extends Controller{
     }
     // view post
     public function viewPost(){
-        $this->view->view("post");
+
+        if(isset($_GET['art'])){
+            $id = intval($_GET['art']);
+            if($id === 0)
+                $this->redirect(URL . '/index');
+            
+            $art = $this->model->getArticleById($id);
+            if($art !== false){
+                $this->view->art = $art[0];
+                $this->model->updateArtViews($id,$art[0]->acl_views);
+                $this->view->view("post");
+            }else{
+                echo "This article not found<br/>";
+                $this->view->view("404");
+            }
+        }else{
+            $this->redirect(URL . '/index');
+        }
     }
     
 }

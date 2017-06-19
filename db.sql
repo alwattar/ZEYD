@@ -38,6 +38,7 @@ acl_content text,
 acl_date varchar(15) not null,
 acl_realdate timestamp not null default current_timestamp,
 acl_user int(255) not null,
+acl_views int(255) not null default 0,
 Foreign key (acl_section) references sections(sec_id),
 Foreign key (acl_user) references users(u_id),
 INDEX acl_realdate_index(acl_realdate),
@@ -45,7 +46,8 @@ INDEX acl_date_index(acl_date),
 INDEX acl_img_index(acl_img),
 INDEX acl_lang_index(acl_lang),
 INDEX acl_title_index(acl_title),
-INDEX acl_id_index(acl_id)
+INDEX acl_id_index(acl_id),
+INDEX acl_views_index(acl_views)
 )Engine=InnoDB default charset utf8;
 
 

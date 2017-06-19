@@ -17,6 +17,20 @@ class Index_Model extends Model{
             ->at('where acl_section = ' . $id . ' and acl_lang = "' . $_SESSION["dlang"] . '"')
             ->select('acl_id, acl_section, acl_title, acl_img, acl_content,acl_date,acl_user');
     }
+
+    // get all artiles as Sessio lang
+    public function getArticleById($id){
+        return $this->db->table('articles')
+            ->at('inner join sections on sections.sec_id = articles.acl_section where acl_id = ' . $id)
+            ->select('articles.acl_id,articles.acl_views, articles.acl_section, articles.acl_title, articles.acl_img, articles.acl_content,articles.acl_date,articles.acl_user, sections.sec_id,sections.sec_name');
+    }
+
+    // update article views
+    public function updateArtViews($id, $v){
+        $this->db->table('articles')
+            ->at('WHERE acl_id = ' . $id)
+            ->update('acl_views = :v', [ 'v' => $v + 1]);
+    }
 }
 
 ?>

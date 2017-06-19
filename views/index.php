@@ -152,7 +152,7 @@ $articles_num = 8; // maximum articles on each section in main page
 			?>
 			    <div class="col-lg-3">
 				<img src="<?php echo $art->acl_img ?>">
-				<h4><?php echo stripslashes($art->acl_title) ?></h4> <!-- It must be كامل LOL -->
+				<h4><a href="<?php echo URL ?>/post&art=<?php echo $art->acl_id ?>"><?php echo stripslashes($art->acl_title) ?></a></h4> <!-- It must be كامل LOL -->
 				<?php
 				$content = strip_tags(html_entity_decode(stripslashes($art->acl_content)));
 				$content = substr($content, 0, 40);

@@ -1,3 +1,7 @@
+<?php 
+$art = $this->art;
+
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -65,28 +69,28 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1>الأخبار</h1>
+                        <h1><?php echo strip_tags(stripslashes($art->sec_name)) ?></h1>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container">
            <div class="row">
-               <h2>ملتقى الإخاء الأول</h2>
-               <p><i class="fa fa-calendar"></i> 2017\05\27</p>
-                <p><i class="fa fa-tag"></i><a href="#">الأخبار</a></p>
+               <h2><?php echo strip_tags(stripslashes($art->acl_title)) ?></h2>
+               <p><i class="fa fa-calendar"></i> <?php echo strip_tags(stripslashes($art->acl_date)) ?></p>
+               <p><i class="fa fa-tag"></i><a href="#"><?php echo strip_tags(stripslashes($art->sec_name)) ?></a></p>
            </div>
         </div>
         <div class="container">
-           <div class="row">
-               محتوايات المقالة 
+            <div class="row">
+		<?php echo html_entity_decode(stripslashes($art->acl_content)) ?>
            </div>
         </div>
         <hr>
         <div class="container">
            <div class="row">
-               <div class="col-md-3">المشاهدات :
-               <br>4000
+               <div class="col-md-3">
+		   المشاهدات : <?php echo $art->acl_views ?>
                </div>
                <div class="col-md-6"> </div>
                <div class="col-md-3">مشاركة تويتر</div>

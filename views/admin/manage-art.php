@@ -27,6 +27,8 @@ $articles = $this->articles;
 		<br/>
 		Article Title: <?php echo strip_tags(stripslashes($art->acl_title))?>
 		<br/>
+		Article Lang: <?php echo strip_tags(stripslashes($art->acl_lang))?>
+		<br/>
 		Article Date (Manually): <?php echo strip_tags(stripslashes($art->acl_date))?>
 		<br/>
 		Article Date (RealDate): <?php echo strip_tags(stripslashes($art->acl_realdate))?>
