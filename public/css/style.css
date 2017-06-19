@@ -438,3 +438,73 @@ footer .row .zlfooter div {
     padding: 20px 0;
     box-shadow: 0px 9px 15px rgba(84, 84, 84, 0.4);
 }
+
+.login-form{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/logi.jpg);
+    background-size: cover;
+}
+.login-form>div{
+    position: relative;
+    width: 500px;
+    height: 800px;
+    text-align: center;
+}
+.login-form>div>form{
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    width: 400px;
+    height: 280px;
+    background: rgba(0, 0, 0, 0.4);
+    padding-top:40px;
+    
+}
+.login-form>div>form>h2{
+    color:white;
+    margin-bottom: 20px;
+}
+.login-form>div>form>input{
+    color:white;
+    direction: rtl;
+    background: none;
+    border:none;
+    border-bottom: 1.5px white solid;
+    padding :5px; 
+    margin-bottom: 20px;
+    outline: none;
+    transition: all ease 0.4s
+    
+}
+.login-form>div>form>input:focus{
+    background: none;
+    border:none;
+    outline: none;
+    border-bottom: 1px white solid;
+}
+.login-form>div>form>input::placeholder{
+    color:white;
+    font-size: 15px;
+}
+.login-form>div>form>button{
+    padding:10px;
+    background: none;
+    color:white;
+    border: none;
+    outline: none;
+    border: 1px white solid
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: #444 !important;
+    
+}
