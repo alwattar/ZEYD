@@ -75,3 +75,51 @@ try{
 }catch(err){
     console.log(err);
 }
+
+try{
+    $(document).ready(function() {
+  var stickyNavTop = $('.mainnav').offset().top;
+
+  var stickyNav = function(){
+    var scrollTop = $(window).scrollTop();
+
+    if (scrollTop > stickyNavTop) { 
+      $('.mainnav').addClass('sticky');
+    } else {
+      $('.mainnav').removeClass('sticky'); 
+    }
+  };
+
+  stickyNav();
+
+  $(window).scroll(function() {
+    stickyNav();
+  });
+});
+}catch(err){
+    console.log(err);
+}
+
+try{
+    $(document).ready(function() {
+  var stickyNavTop = $('.secnav').offset().top;
+
+  var stickyNav = function(){
+    var scrollTop = $(window).scrollTop();
+
+    if (scrollTop > stickyNavTop) { 
+      $('.secnav').addClass('sticky2');
+    } else {
+      $('.secnav').removeClass('sticky2'); 
+    }
+  };
+
+  stickyNav();
+
+  $(window).scroll(function() {
+    stickyNav();
+  });
+});
+}catch(err){
+    console.log(err);
+}
