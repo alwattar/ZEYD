@@ -31,6 +31,22 @@ class Index_Model extends Model{
             ->at('WHERE acl_id = ' . $id)
             ->update('acl_views = :v', [ 'v' => $v + 1]);
     }
+
+    // get Section By Id
+    public function getSectionById($id){
+        $section = $this->db->table('sections')
+                 ->at('WHERE sec_id = ' . $id)
+                 ->select("sec_id,sec_name,sec_logo");
+
+        return $section;
+    }
+
+    // get all artiles as Sessio lang
+    public function getArticlesForPage($id, $l_from , $l_to){
+        return $this->db->table('articles')
+            ->at('WHERE acl_section = ' . $id . ' AND acl_lang = "' . $_SESSION["dlang"] . '" LIMIT ' . $l_from . ', ' . $l_to)
+            ->select('acl_id, acl_section, acl_title, acl_img, acl_content,acl_date,acl_user');
+    }
 }
 
 ?>

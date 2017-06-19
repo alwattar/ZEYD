@@ -1,4 +1,7 @@
-
+<?php
+$sec = $this->sec;
+$arts = $this->arts;
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -114,93 +117,43 @@
 	</section>
 	<section>
 	    <div class="sec-head">
-            <div class="container text-center ">
-                <img src="public/img/sectionlogo/News.png">
-                <h1>الأخبار</h1>
-            </div>
+		<div class="container text-center ">
+                    <img src="<?php echo strip_tags(stripslashes($sec->sec_logo)) ?>">
+                    <h1><?php echo strip_tags(stripslashes($sec->sec_name)) ?></h1>
+		</div>
 	    </div>
 	    <div class="sec-header">
 	        <div class="container">
 	            <div class="row">
-	                <div class="col-lg-3">
-	                                    <img src="public/img/article/83ÚÜÝÚ.jpg">
-	                                    <h4>ملتقى الإخاء الأول</h4>
-	                                    <p>تحت شعار لن ننساهم نظمت مؤسسة زيد بن ثابت الأهلية وبالتعاون مع اتحاد المنظمات الأهلية في العالم الإسلامي ملتقى الإخاء الأول</p>
-	                                    <p><i class="fa fa-calendar"></i> 2017\05\27</p>
-	                                    <p><i class="fa fa-tag"></i><a href="#">الأخبار</a></p>
-	                                </div>
-	                                <div class="col-lg-3">
-	                                    <img src="public/img/article/83ÚÜÝÚ.jpg">
-	                                    <h4>ملتقى الإخاء الأول</h4>
-	                                    <p>تحت شعار لن ننساهم نظمت مؤسسة زيد بن ثابت الأهلية وبالتعاون مع اتحاد المنظمات الأهلية في العالم الإسلامي ملتقى الإخاء الأول</p>
-	                                    <p><i class="fa fa-calendar"></i> 2017\05\27</p>
-	                                    <p><i class="fa fa-tag"></i><a href="#">الأخبار</a></p>
-	                                </div>
-	                                <div class="col-lg-3">
-	                                    <img src="public/img/article/83ÚÜÝÚ.jpg">
-	                                    <h4>ملتقى الإخاء الأول</h4>
-	                                    <p>تحت شعار لن ننساهم نظمت مؤسسة زيد بن ثابت الأهلية وبالتعاون مع اتحاد المنظمات الأهلية في العالم الإسلامي ملتقى الإخاء الأول</p>
-	                                    <p><i class="fa fa-calendar"></i> 2017\05\27</p>
-	                                    <p><i class="fa fa-tag"></i><a href="#">الأخبار</a></p>
-	                                </div>
-	                                <div class="col-lg-3">
-	                                    <img src="public/img/article/83ÚÜÝÚ.jpg">
-	                                    <h4>ملتقى الإخاء الأول</h4>
-	                                    <p>تحت شعار لن ننساهم نظمت مؤسسة زيد بن ثابت الأهلية وبالتعاون مع اتحاد المنظمات الأهلية في العالم الإسلامي ملتقى الإخاء الأول</p>
-	                                    <p><i class="fa fa-calendar"></i> 2017\05\27</p>
-	                                    <p><i class="fa fa-tag"></i><a href="#">الأخبار</a></p>
-	                                </div>
-	                                <div class="col-lg-3">
-	                                    <img src="public/img/article/83ÚÜÝÚ.jpg">
-	                                    <h4>ملتقى الإخاء الأول</h4>
-	                                    <p>تحت شعار لن ننساهم نظمت مؤسسة زيد بن ثابت الأهلية وبالتعاون مع اتحاد المنظمات الأهلية في العالم الإسلامي ملتقى الإخاء الأول</p>
-	                                    <p><i class="fa fa-calendar"></i> 2017\05\27</p>
-	                                    <p><i class="fa fa-tag"></i><a href="#">الأخبار</a></p>
-	                                </div>
-	                                <div class="col-lg-3">
-	                                    <img src="public/img/article/83ÚÜÝÚ.jpg">
-	                                    <h4>ملتقى الإخاء الأول</h4>
-	                                    <p>تحت شعار لن ننساهم نظمت مؤسسة زيد بن ثابت الأهلية وبالتعاون مع اتحاد المنظمات الأهلية في العالم الإسلامي ملتقى الإخاء الأول</p>
-	                                    <p><i class="fa fa-calendar"></i> 2017\05\27</p>
-	                                    <p><i class="fa fa-tag"></i><a href="#">الأخبار</a></p>
-	                                </div>
-	                                <div class="col-lg-3">
-	                                    <img src="public/img/article/83ÚÜÝÚ.jpg">
-	                                    <h4>ملتقى الإخاء الأول</h4>
-	                                    <p>تحت شعار لن ننساهم نظمت مؤسسة زيد بن ثابت الأهلية وبالتعاون مع اتحاد المنظمات الأهلية في العالم الإسلامي ملتقى الإخاء الأول</p>
-	                                    <p><i class="fa fa-calendar"></i> 2017\05\27</p>
-	                                    <p><i class="fa fa-tag"></i><a href="#">الأخبار</a></p>
-	                                </div>
-	                                <div class="col-lg-3">
-	                                    <img src="public/img/article/83ÚÜÝÚ.jpg">
-	                                    <h4>ملتقى الإخاء الأول</h4>
-	                                    <p>تحت شعار لن ننساهم نظمت مؤسسة زيد بن ثابت الأهلية وبالتعاون مع اتحاد المنظمات الأهلية في العالم الإسلامي ملتقى الإخاء الأول</p>
-	                                    <p><i class="fa fa-calendar"></i> 2017\05\27</p>
-	                                    <p><i class="fa fa-tag"></i><a href="#">الأخبار</a></p>
-	                                </div>
-	                                <div class="col-lg-3">
-	                                    <img src="public/img/article/83ÚÜÝÚ.jpg">
-	                                    <h4>ملتقى الإخاء الأول</h4>
-	                                    <p>تحت شعار لن ننساهم نظمت مؤسسة زيد بن ثابت الأهلية وبالتعاون مع اتحاد المنظمات الأهلية في العالم الإسلامي ملتقى الإخاء الأول</p>
-	                                    <p><i class="fa fa-calendar"></i> 2017\05\27</p>
-	                                    <p><i class="fa fa-tag"></i><a href="#">الأخبار</a></p>
-	                                </div>
+			<?php foreach($arts as $art){ ?>
+	                    <div class="col-lg-3">
+				<img src="<?php echo strip_tags(stripslashes($art->acl_img)) ?>">
+				<h4><a href="<?php echo URL ?>/post&art=<?php echo $art->acl_id ?>"><?php echo strip_tags(stripslashes($art->acl_title)) ?></a></h4>
+				<?php
+				$content = strip_tags(html_entity_decode(stripslashes($art->acl_content)));
+				$content = substr($content, 0, 40);
+				?>
+				<p><?php echo $content ?></p>
+				<p><i class="fa fa-calendar"></i> <?php echo strip_tags(stripslashes($art->acl_date)) ?></p>
+				<p><i class="fa fa-tag"></i><a href="<?php echo URL ?>/section&sec=<?php echo $sec->sec_id ?>"><?php echo strip_tags(stripslashes($sec->sec_name)) ?></a></p>
+	                    </div>
+			<?php } ?>
 	            </div>
 	        </div>
 	    </div>
 	    <div class="text-center pagenumber">
-            <div class="row">
-                <ul>
-                    <li><i class="fa fa-angle-double-left" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-angle-left" aria-hidden="true"></i></li>
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-angle-double-right" aria-hidden="true"></i></li>
-                    
-                </ul>
-            </div>	        
+		<div class="row">
+                    <ul>
+			<li><i class="fa fa-angle-double-left" aria-hidden="true"></i></li>
+			<li><i class="fa fa-angle-left" aria-hidden="true"></i></li>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+			<li><i class="fa fa-angle-double-right" aria-hidden="true"></i></li>
+			
+                    </ul>
+		</div>	        
 	    </div>
 	</section>
 
@@ -223,76 +176,76 @@
 	    </div>
 	</section>
 	<footer class="hidden-xs">
-        <div class="container ">
-            <div class="row ">
-            <div class="col-md-4 pull-right col-xs-12">
-                <div class="footer-social">
-                    <h3>follow us </h3>
-                    <ul class="list-inline">
-                        <li><i class="fa fa-facebook" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-twitter" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-instagram" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-paper-plane" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-youtube" aria-hidden="true"></i></li>
-                    </ul>
-                </div>
-                <div class="contact-us">
-                    <h3>contact_us </h3>
-                    <p><span><i class="fa fa-map-marker" aria-hidden="true"></i></span>address </p>
-                    <p><span><i class="fa fa-phone" aria-hidden="true"></i></span> phones </p>
-                    <p><span><i class="fa fa-envelope" aria-hidden="true"></i></span>our_email <span class="zaidemail">INFO@ZEYD.ORG</span></p>
-                </div>
+            <div class="container ">
+		<div class="row ">
+		    <div class="col-md-4 pull-right col-xs-12">
+			<div class="footer-social">
+			    <h3>follow us </h3>
+			    <ul class="list-inline">
+				<li><i class="fa fa-facebook" aria-hidden="true"></i></li>
+				<li><i class="fa fa-twitter" aria-hidden="true"></i></li>
+				<li><i class="fa fa-instagram" aria-hidden="true"></i></li>
+				<li><i class="fa fa-paper-plane" aria-hidden="true"></i></li>
+				<li><i class="fa fa-youtube" aria-hidden="true"></i></li>
+			    </ul>
+			</div>
+			<div class="contact-us">
+			    <h3>contact_us </h3>
+			    <p><span><i class="fa fa-map-marker" aria-hidden="true"></i></span>address </p>
+			    <p><span><i class="fa fa-phone" aria-hidden="true"></i></span> phones </p>
+			    <p><span><i class="fa fa-envelope" aria-hidden="true"></i></span>our_email <span class="zaidemail">INFO@ZEYD.ORG</span></p>
+			</div>
+		    </div>
+		    <div class="col-md-4 col-xs-12 text-center pull-right zlfooter">
+			<img src="<?php echo PUBLIC_PATH ?>/img/logo/logozaid.png"/>
+			<div>
+			    <p>
+				under_logo 
+			    </p>
+			</div>
+		    </div>
+		    <div class="col-md-4 col-xs-12 pull-right">
+			<h3>to_donate </h3>
+			<div class="donatebankdiv">
+			    <h5>orga_bank_acc <span> Vakıf Katılım</span></h5>
+			    <h5>acc_owner <span> ZEYD BİN SABİT YARDIMLAŞMA</span></h5>
+			    <div class="donatebank">
+				<img src="<?php echo PUBLIC_PATH ?>/img/logo/v.png" />
+				<p>
+				    TR83 0021 0000 0000 2797 7000 01 TL<br />
+				    TR02 0021 0000 0000 2797 7001 01 $<br />
+				    TR72 0021 0000 0000 2797 7001 02 EU
+				</p>
+			    </div>
+			    <div class="clearfix"></div>
+			    <h6>swift_code<span> VAKFRISXXX</span></h6>
+			</div>
+			<br />
+			<div class="donatebankdiv">
+			    <h5>orga_bank_acc <span> ALBARAKA</span></h5>
+			    <h5>acc_owner<span> ZEYD BİN SABİT YARDIMLAŞMA DERNĞİ</span></h5>
+			    <div class="donatebank">
+				<img src="<?php echo PUBLIC_PATH ?>/img/logo/b.png" />
+				<p>
+				    TR67 0020 3000 0366 3064 0000 01 TL<br />
+				    TR40 0020 3000 0366 3064 0000 02 $<br />
+				    TR13 0020 3000 0366 3064 0000 03 EU
+				</p>
+			    </div>
+			    <div class="clearfix"></div>
+			    <h6>swift_code<span> BTFHTRISXXX</span></h6>
+			</div>
+		    </div>
+		</div>
+		<div class="text-center copyrightfooter">
+		    ZEYD BİN SABİT DERNĞİ <span style="color:#828282;">© 2012 -  <?php echo date("Y"); ?></span>
+		</div>
             </div>
-            <div class="col-md-4 col-xs-12 text-center pull-right zlfooter">
-                <img src="<?php echo PUBLIC_PATH ?>/img/logo/logozaid.png"/>
-                <div>
-                    <p>
-			under_logo 
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-4 col-xs-12 pull-right">
-                <h3>to_donate </h3>
-                <div class="donatebankdiv">
-                    <h5>orga_bank_acc <span> Vakıf Katılım</span></h5>
-                    <h5>acc_owner <span> ZEYD BİN SABİT YARDIMLAŞMA</span></h5>
-                    <div class="donatebank">
-                        <img src="<?php echo PUBLIC_PATH ?>/img/logo/v.png" />
-                        <p>
-                            TR83 0021 0000 0000 2797 7000 01 TL<br />
-                            TR02 0021 0000 0000 2797 7001 01 $<br />
-                            TR72 0021 0000 0000 2797 7001 02 EU
-                        </p>
-                    </div>
-                    <div class="clearfix"></div>
-                    <h6>swift_code<span> VAKFRISXXX</span></h6>
-                </div>
-                <br />
-                <div class="donatebankdiv">
-                    <h5>orga_bank_acc <span> ALBARAKA</span></h5>
-                    <h5>acc_owner<span> ZEYD BİN SABİT YARDIMLAŞMA DERNĞİ</span></h5>
-                    <div class="donatebank">
-                        <img src="<?php echo PUBLIC_PATH ?>/img/logo/b.png" />
-                        <p>
-                            TR67 0020 3000 0366 3064 0000 01 TL<br />
-                            TR40 0020 3000 0366 3064 0000 02 $<br />
-                            TR13 0020 3000 0366 3064 0000 03 EU
-                        </p>
-                    </div>
-                    <div class="clearfix"></div>
-                    <h6>swift_code<span> BTFHTRISXXX</span></h6>
-                </div>
-            </div>
-        </div>
-        <div class="text-center copyrightfooter">
-            ZEYD BİN SABİT DERNĞİ <span style="color:#828282;">© 2012 -  <?php echo date("Y"); ?></span>
-        </div>
-        </div>
-        
-        
-    </footer>
-    
-    
+            
+            
+	</footer>
+	
+	
 	<script src="<?php echo JS_PATH ?>/jquery-1.12.4.min.js"></script>
 	<script src="<?php echo JS_PATH ?>/bootstrap.min.js"></script>
 	<script src="<?php echo JS_PATH ?>/npm.js"></script>
