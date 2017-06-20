@@ -99,7 +99,7 @@ $articles_num = 8; // maximum articles on each section in main page
 		    
 		</div>
 		<div class="slider-it" data-iview:image="<?php echo PUBLIC_PATH ?>/photos/photo2.JPG" data-iview:transition="slice-top-fade,slice-right-fade">
-		    <div class="iview-caption caption1" data-x="45%" data-y="70%" data-transition="wipeDown">نص تجريبي </div>
+		    <div class="iview-caption caption1" data-x="45%" data-y="80%" data-transition="wipeDown">نص تجريبي </div>
 		    <div class="iview-caption caption1" data-x="25%" data-y="80%" data-transition="wipeUp">نص تجريبي</div>
 		</div>
 		<div class="slider-it" data-iview:image="<?php echo PUBLIC_PATH ?>/photos/photo3.JPG" data-iview:transition="slice-top-fade,slice-right-fade">

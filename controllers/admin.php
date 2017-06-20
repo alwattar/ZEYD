@@ -215,7 +215,7 @@ class Admin extends Controller{
             // view template
             $this->view->view('admin/manage-art');
         }else{
-            $this->redirect(URL . ADMIN_BASE . '/login');            
+            $this->redirect(URL . ADMIN_BASE . '/login');
         }
     }
 
@@ -574,7 +574,74 @@ class Admin extends Controller{
             $this->redirect(URL . ADMIN_BASE . '/login');
         }
     }
-  
+    // manage sliders
+    public function manageSliders(){
+        if($this->checkUserSession() === true){
+            $sliders = $this->model->getSliders();
+            if($sliders !== false)
+                $this->view->sliders = $sliders;
+            else
+                $this->view->sliders = [];
+            
+            if(isset($_POST['_token'])){
+                $save_slider_token = $this->protect($_POST['_token']);
+                $real_token = $_SESSION['_token'];
+                if($save_slider_token === $real_token){
+
+                    $id = intval($_POST['slider-id']);
+                    $img = $this->protect($_POST['slider-img']);
+                    $content = $this->protect($_POST['slider-content']);
+                    $url = $this->protect($_POST['slider-url']);
+
+                    $sl = [
+                        'id' => $id,
+                        'img' => $img,
+                        'content' => $content,
+                        'url' => $url,
+                    ];
+
+                    $uslider = $this->model->updateSlider($sl);
+                    if($uslider !== false){
+                        echo "Done";
+                        echo "<script>setTimeout(function(){location.href = '';}, 2000)</script>";
+                    }
+                    // echo "<pre>";
+                    // echo var_dump($uslider);
+                    // echo var_dump($_POST);
+                }else{
+                    echo 'Invalid token';
+                }
+                // regenerate token 
+                $this->view->_token = $this->genToken('_token');
+            }else{
+                // generate token 
+                $this->view->_token = $this->genToken('_token');
+            }
+            $this->delSlider();
+            $this->view->view('/admin/manage-sliders');
+        }else{
+            $this->redirect(URL . ADMIN_BASE . '/login');
+        }
+    }
+
+
+    // delete slider
+
+    public function delSlider(){
+        if(isset($_GET['del'])){
+            $id = intval($_GET['del']);
+            if($id != 0){
+                $del_slider = $this->model->deleteSliderById($id);
+                echo var_dump($del_slider);
+                if($del_slider != false || $del_slider != null){
+                    echo "Deleted";
+                    $this->redirect(URL . ADMIN_BASE . '/manage-sliders');
+                }
+            }
+        }
+    }
+
+    
     // logout
     public function logout(){
         session_destroy();

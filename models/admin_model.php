@@ -135,5 +135,26 @@ class Admin_Model extends Model{
         $statics = $this->db->table('statics')->select('*');
         return $statics;
     }
+
+    // get sliders
+    public function getSliders(){
+        $sliders = $this->db->table('slider')
+                 ->at(' inner join users on slider.sl_user = users.u_id')
+                 ->select('users.u_name, slider.*');
+        return $sliders;
+    }
+
+    public function updateSlider($sl){
+        $sl_update = $this->db->table('slider')
+                   ->at('where sl_id = :id')
+                   ->update('sl_url = :url, sl_content = :content, sl_img = :img', $sl);
+        return $sl_update;
+    }
+
+    // delete slider
+    public function deleteSliderById($id){
+        $del = $this->db->table('slider')->at('WHERE sl_id = '. intval($id))->delete();
+        return $del;
+    }
 }
 ?>

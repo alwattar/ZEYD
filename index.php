@@ -48,6 +48,7 @@ $r->addRoute(ADMIN_BASE . "/new-user","admin@newUser");
 $r->addRoute(ADMIN_BASE . "/manage-users","admin@manageUsers");
 $r->addRoute(ADMIN_BASE . "/manage-users/edit","admin@editUser");
 $r->addRoute(ADMIN_BASE . "/manage-statics","admin@manageStatics");
+$r->addRoute(ADMIN_BASE . "/manage-sliders","admin@manageSliders");
 
 $r->addRoute(ADMIN_BASE . "/logout","admin@logout");
 
