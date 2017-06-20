@@ -71,6 +71,7 @@ class Index extends Controller{
                     
                     $this->view->arts = $articles;
                 }else{
+                    $this->view->arts_count = 0;
                     $this->view->max_pages = 0;
                     $this->view->arts = [];
                 }
