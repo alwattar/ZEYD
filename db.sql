@@ -65,3 +65,23 @@ INDEX sl_content_index(sl_content),
 INDEX sl_img_index(sl_img),
 INDEX sl_id_index(sl_id)
 )Engine=InnoDB default charset utf8;
+
+
+create table statics(
+st_id int(10) auto_increment primary key,
+st_ar_text varchar(255) not null default '---',
+st_en_text varchar(255) not null default '---',
+st_tr_text varchar(255) not null default '---',
+st_number int(255) not null default 20,
+INDEX st_number_index(st_number),
+INDEX st_tr_text_index(st_tr_text),
+INDEX st_en_text_index(st_en_text),
+INDEX st_ar_text_index(st_ar_text)
+)Engine=InnoDB default charset utf8;
+
+INSERT INTO `statics` (`st_id`, `st_ar_text`, `st_en_text`, `st_tr_text`, `st_number`) VALUES
+(1, 'قطاعات مختلفة مجال العمل', 'en en قطاعات مختلفة مجال العمل', 'tr tr قطاعات مختلفة مجال العمل', 2404402),
+(2, 'دولار قيمة المشاريع', 'en en دولار قيمة المشاريع', 'tr tr دولار قيمة المشاريع', 200),
+(3, 'عدد المناطق المستفيدة', 'en en عدد المناطق المستفيدة', 'tr tr عدد المناطق المستفيدة', 600),
+(4, 'عدد المستفيدين', 'en en عدد المستفيدين', 'tr tr عدد المستفيدين', 1000),
+(5, 'عدد المشاريع المنفذة', 'en en عدد المشاريع المنفذة', 'tr tr عدد المشاريع المنفذة', 500);

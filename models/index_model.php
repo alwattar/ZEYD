@@ -6,6 +6,12 @@ class Index_Model extends Model{
         parent::__construct();
     }
 
+    // get index statics
+    public function getIndexStatics(){
+        $statics = $this->db->table('statics ORDER BY st_id DESC')->select('*');
+        return $statics;
+    }
+    
     // get all section
     public function getSections(){
         return $this->db->table('sections')->select('sec_id,sec_logo,sec_name,sec_id');

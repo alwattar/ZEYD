@@ -1,7 +1,7 @@
 <?php
-
 $ddlang = $this->dlang;
-$sections = $this->sections;
+$statics = $this->statics;
+$sections = (array) $this->sections;
 $aos = $this->a_o_s;
 $articles_num = 8; // maximum articles on each section in main page
 ?>
@@ -123,17 +123,12 @@ $articles_num = 8; // maximum articles on each section in main page
 		<div class="row">
                     <h1>إنجازات عام 2016</h1>
                     <div class="col-lg-1"></div>
-                    <div class="col-lg-2"><span class="count">500</span>
-			<p>عدد المشاريع المنفذة</p></div>
-                    <div class="col-lg-2"><span class="count">1000</span>
-			<p>عدد المستفيدين</p></div>
-                    <div class="col-lg-2"><span class="count">60</span>
-			<p>عدد المناطق المستفيدة</p></div>
-                    <div class="col-lg-2"><span class="count">400</span>
-			<p>دولار قيمة المشاريع</p></div>
-                    <div class="col-lg-2 ">
-			<span class="count">244004</span>
-			<p>قطاعات مختلفة مجال العمل</p></div>
+		    <?php foreach($statics as $st){  $st = (array) $st?>
+			<div class="col-lg-2">
+			    <span class="count"><?php echo $st['st_number'] ?></span>
+			    <p><?php echo $st['st_' . $_SESSION['dlang'] . '_text'] ?></p>
+			</div>
+		    <?php } ?>
                     <div class="col-lg-1"></div>
 		</div>
             </div>

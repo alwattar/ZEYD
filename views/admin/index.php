@@ -19,7 +19,7 @@
             <div></div>
             <div>
                <h2>ZEYD.ORG</h2>
-               <img src="../public/img/logo/logozaid.png">
+               <img src="<?php echo PUBLIC_PATH ?>/img/logo/logozaid.png">
                 <ul>
                     <li><i class="fa fa-home" aria-hidden="true"></i>
                         <a href="#">Dashboard</a>

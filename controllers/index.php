@@ -11,6 +11,8 @@ class Index extends Controller{
     // Index Method
     public function index(){
 
+        // get statics
+        $this->view->statics = $this->model->getIndexStatics();
         // this to get all sections from db
         $sections = $this->model->getSections();
         if($sections !== false && is_array($sections))  // if sections > 0
