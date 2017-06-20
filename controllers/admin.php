@@ -519,14 +519,62 @@ class Admin extends Controller{
                 
                 $this->view->view('/admin/edit-user');
             }else{
-                $this->view->view('admin/permission-denied');                
+                $this->view->view('admin/permission-denied');
             }
         }else{
             $this->redirect(URL . ADMIN_BASE . '/login');
         }
     }
     
-    
+    // manageStatics
+    public function manageStatics(){
+        if($this->checkUserSession() === true){
+            if($_SESSION['u_type'] == 0){
+                $statics = $this->model->getIndexStatics();
+                if(isset($_POST['_token'])){
+                    $save_statics_token = $this->protect($_POST['_token']);
+                    $real_token = $_SESSION['_token'];
+                    if($save_statics_token === $real_token){
+                        $statics_data = [];
+                        for($x = 1; $x <= 5; $x++){
+                            $arr = [
+                                'id' => $x,
+                                'ar' => $_POST['st_' . $x . '_ar'],
+                                'en' => $_POST['st_' . $x . '_en'],
+                                'tr' => $_POST['st_' . $x . '_tr'],
+                                'num' => $_POST['num_' . $x],
+                            ];
+                            $statics_data[] = $arr;
+                        }
+                        $update_statics = $this->model->updateStatics($statics_data);
+                        if($update_statics === true){
+                            echo '<span style="color:green">done</span>';
+                            echo "<script>setTimeout(function(){location.href = '';}, 2000)</script>";
+                            // $this->redirect(URL . ADMIN_BASE . '/manage-statics');
+                        }
+                    }else{
+                        echo 'Invalid token';
+                    }
+                    // regenerate token
+                    $this->view->_token = $this->genToken('_token');
+                }else{
+                    // generate token 
+                    $this->view->_token = $this->genToken('_token');
+                }
+
+                if($statics !== false)
+                    $this->view->statics = $statics;
+                else
+                    $this->view->statics = [];
+                $this->view->view('/admin/manage-statics');
+            }else{
+                $this->view->view('/admin/permission-denied');
+            }
+        }else{
+            $this->redirect(URL . ADMIN_BASE . '/login');
+        }
+    }
+  
     // logout
     public function logout(){
         session_destroy();

@@ -5,8 +5,7 @@ class Admin_Model extends Model{
     public function __construct(){
         parent::__construct();
     }
-
-
+    
     // login querys
     public function loginToAdmin($ld){
         $u_cond = 'WHERE u_nick = "'. $ld['user_name'] .'" ';
@@ -101,7 +100,6 @@ class Admin_Model extends Model{
     }
 
     // edit User
-    // update new article
     public function editUser($user_data){
         if(count($user_data) == 5){
             $edit_user = $this->db->table('users')
@@ -113,6 +111,29 @@ class Admin_Model extends Model{
                        ->update('u_name = :u_name, u_nick = :u_nick, u_email = :u_email, u_type = :u_type, u_pass = :u_pass', $user_data);
         }
         return $edit_user;
+    }
+
+    // update statics
+    public function updateStatics($sta){
+        $bool_results = [];
+        foreach($sta as $st){
+            $update = $this->db->table('statics')
+                    ->at('WHERE st_id = :id')
+                    ->update("st_ar_text = :ar, st_en_text = :en, st_tr_text = :tr, st_number = :num", $st);
+            $bool_results[] = $update;
+        }
+
+        if(in_array(false, $bool_results)){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    // get index statics
+    public function getIndexStatics(){
+        $statics = $this->db->table('statics')->select('*');
+        return $statics;
     }
 }
 ?>
