@@ -36,7 +36,7 @@
                         <a href="<?php echo ADMIN_PATH ?>/manage-art">Manage Articles</a>
                     </li>
 
-		    <li><i class="fa fa-pencil-square" aria-hidden="true"></i>
+		    <li><i class="fa fa-bar-chart" aria-hidden="true"></i>
                         <a href="<?php echo ADMIN_PATH ?>/manage-statics">Manage ZEYD Statics</a>
                     </li>
 

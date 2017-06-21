@@ -57,13 +57,25 @@ font-family: 'Lateef', cursive;*/
 .mainnav nav ul{
     direction: rtl;
 }
-.mainnav nav ul li{
+.mainnav nav ul a{
+    cursor: pointer;
+}
+.mainnav nav ul a li:hover{
+    transform:  scale(1.1);
+    background: #0088cc;
+    color:white;
+}
+.mainnav nav ul a li{
+    border-radius: 4px;
+    transition: all ease 0.3s;
     display: inline-block;
     margin-right: 30px;
     font-size: 18px;
     font-weight: 900;
+    padding:7px;
     color:#0088cc;
 }
+
 /****END************  mainnav  ***************/
 /****START************  Secnnav  ***************/
 .secnav{
