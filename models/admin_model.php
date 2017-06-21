@@ -165,5 +165,18 @@ class Admin_Model extends Model{
         return $new_slider;
         
     }
+
+    // get about content
+    public function getAbout(){
+        $about = $this->db->table('about')->select("*");
+        return $about;
+    }
+
+    // update about content
+    public function updateAbout($content , $lang){
+        $uabout = $this->db->table('about')
+               ->update("ab_" . $lang . "_content = '" . $content . "'");
+        return $uabout;
+    }
 }
 ?>

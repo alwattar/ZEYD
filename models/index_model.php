@@ -59,6 +59,12 @@ class Index_Model extends Model{
             ->at('WHERE acl_section = ' . $id . ' AND acl_lang = "' . $_SESSION["dlang"] . '" LIMIT ' . $l_from . ', ' . $l_to)
             ->select('acl_id, acl_section, acl_title, acl_img, acl_content,acl_date,acl_user');
     }
+
+    // get about
+    public function getAbout(){
+        $ab = $this->db->table('about')->select("*");
+        return $ab;
+    }
 }
 
 ?>

@@ -36,6 +36,8 @@ require_once("./libs/Route.php");
 $r->addRoute("/index","index@index");
 $r->addRoute("/section","index@viewSection");
 $r->addRoute("/post","index@viewPost");
+$r->addRoute("/about","index@viewAbout");
+
 // admin controller
 $r->addRoute(ADMIN_BASE ,"admin@index");
 $r->addRoute(ADMIN_BASE . "/index","admin@index");
@@ -49,6 +51,7 @@ $r->addRoute(ADMIN_BASE . "/manage-users","admin@manageUsers");
 $r->addRoute(ADMIN_BASE . "/manage-users/edit","admin@editUser");
 $r->addRoute(ADMIN_BASE . "/manage-statics","admin@manageStatics");
 $r->addRoute(ADMIN_BASE . "/manage-sliders","admin@manageSliders");
+$r->addRoute(ADMIN_BASE . "/manage-about","admin@manageAbout");
 
 $r->addRoute(ADMIN_BASE . "/logout","admin@logout");
 

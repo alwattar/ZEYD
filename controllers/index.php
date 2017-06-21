@@ -115,6 +115,13 @@ class Index extends Controller{
             $this->redirect(URL . '/index');
         }
     }
+
+    // view about page
+    public function viewAbout(){
+        $about = $this->model->getAbout();
+        $this->view->about = $about[0];
+        $this->view->view("about");
+    }
     
 }
 ?>

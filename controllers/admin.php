@@ -682,6 +682,53 @@ class Admin extends Controller{
             $this->redirect(URL . ADMIN_BASE . '/login');
         }
     }
+
+    // manage about
+    public function manageAbout(){
+        if($this->checkUserSession() == true){
+            if(isset($_POST['_token'])){
+                $about_token = $this->protect($_POST['_token']);
+                $real_token = $_SESSION['_token'];
+                
+                if($about_token === $real_token){
+                    
+                    $content = $this->protect($_POST['about-content']);
+                    $the_lang = $this->protect($_POST['the_lang']);
+
+                    $update_ab = $this->model->updateAbout($content,$the_lang);
+                    if($update_ab == false){
+                        echo "Unale to update about";
+                    }
+                }
+                // regenerate token 
+                $this->view->_token = $this->genToken('_token');
+            }else{
+                // generate token 
+                $this->view->_token = $this->genToken('_token');
+            }
+            if(isset($_GET['ab_lang'])){
+                $ab_lang = $_GET['ab_lang'];
+                $ab_lang = strtolower($ab_lang);
+                $true_ab = $ab_lang == 'ar' || $ab_lang == 'en' || $ab_lang = 'tr';
+                if(!$true_ab)
+                    $ab_lang = 'ar';
+            }else{
+                $ab_lang = 'ar';
+            }
+            $about = $this->model->getAbout();
+
+            if($about != false){
+                $this->view->about = $about[0];
+            }else{
+                $this->view->about_content = null;
+            }
+            
+            $this->view->ab_lang = $ab_lang;
+            $this->view->view('/admin/manage-about');
+        }else{
+            $this->redirect(URL . ADMIN_BASE . '/login');
+        }
+    }
     
     // logout
     public function logout(){

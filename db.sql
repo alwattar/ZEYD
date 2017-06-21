@@ -67,6 +67,14 @@ INDEX sl_id_index(sl_id)
 )Engine=InnoDB default charset utf8;
 
 
+create table about(
+ab_id int(10) auto_increment primary key,
+ab_ar_content text,
+ab_en_content text,
+ab_tr_content text
+)Engine=InnoDB default charset utf8;
+
+
 create table statics(
 st_id int(10) auto_increment primary key,
 st_ar_text varchar(255) not null default '---',
