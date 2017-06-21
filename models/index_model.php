@@ -6,6 +6,12 @@ class Index_Model extends Model{
         parent::__construct();
     }
 
+    // get sliders
+
+    public function getSliders(){
+        $sl = $this->db->table('slider')->select("sl_img, sl_url, sl_content");
+        return $sl;
+    }
     // get index statics
     public function getIndexStatics(){
         $statics = $this->db->table('statics ORDER BY st_id DESC')->select('*');

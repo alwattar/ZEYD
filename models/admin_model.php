@@ -156,5 +156,14 @@ class Admin_Model extends Model{
         $del = $this->db->table('slider')->at('WHERE sl_id = '. intval($id))->delete();
         return $del;
     }
+
+    // insert new section
+    public function newSlider($sl){
+        $new_slider = $this->db->table('slider')
+                 ->insert("(sl_img, sl_content, sl_url,sl_user) VALUES(:img, :content, :url, :user)", $sl);
+
+        return $new_slider;
+        
+    }
 }
 ?>

@@ -1,9 +1,11 @@
 <?php
 $ddlang = $this->dlang;
+$sliders = $this->sliders;
 $statics = $this->statics;
 $sections = (array) $this->sections;
 $aos = $this->a_o_s;
 $articles_num = 8; // maximum articles on each section in main page
+
 ?>
 <?php include 'includes/header.php'; ?>
 <?php include 'includes/mainnav.php'; ?>

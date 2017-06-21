@@ -10,7 +10,14 @@ class Index extends Controller{
 
     // Index Method
     public function index(){
-
+        // get sliders
+        $sliders = $this->model->getSliders();
+        if($sliders != false){
+            $this->view->sliders = $sliders;
+        }else{
+            $this->view->sliders = null;
+        }
+        
         // get statics
         $this->view->statics = $this->model->getIndexStatics();
         // this to get all sections from db
@@ -84,7 +91,7 @@ class Index extends Controller{
             }
                 
         }else{
-                $this->redirect(URL . '/index'); // if not            
+            $this->redirect(URL . '/index'); // if not            
         }
     }
     // view post

@@ -582,7 +582,9 @@ class Admin extends Controller{
                 $this->view->sliders = $sliders;
             else
                 $this->view->sliders = [];
-            
+            // create new slider method
+            $this->newSlider();
+            // edit slider
             if(isset($_POST['_token'])){
                 $save_slider_token = $this->protect($_POST['_token']);
                 $real_token = $_SESSION['_token'];
@@ -590,13 +592,13 @@ class Admin extends Controller{
 
                     $id = intval($_POST['slider-id']);
                     $img = $this->protect($_POST['slider-img']);
-                    $content = $this->protect($_POST['slider-content']);
+                    // $content = $this->protect($_POST['slider-content']);
                     $url = $this->protect($_POST['slider-url']);
 
                     $sl = [
                         'id' => $id,
                         'img' => $img,
-                        'content' => $content,
+                        'content' => 'content',
                         'url' => $url,
                     ];
 
@@ -626,7 +628,6 @@ class Admin extends Controller{
 
 
     // delete slider
-
     public function delSlider(){
         if(isset($_GET['del'])){
             $id = intval($_GET['del']);
@@ -641,11 +642,52 @@ class Admin extends Controller{
         }
     }
 
+    // new slider
+    public function newSlider(){
+        if($this->checkUserSession() === true){
+            if(isset($_POST['_token_new_slider'])){
+                $new_slider_token = $this->protect($_POST['_token_new_slider']);
+                $real_token = $_SESSION['_token'];
+                if($new_slider_token === $real_token){
+                    
+                    $img = $this->protect($_POST['slider-img']);
+                    // $content = $this->protect($_POST['slider-content']);
+                    $url = $this->protect($_POST['slider-url']);
+                    $user = $_SESSION['u_id'];
+                    
+                    
+                    $sl = [
+                        'img' => $img,
+                        'content' => 'content',
+                        'url' => $url,
+                        'user' => $user,
+                    ];
+                    // echo "<pre>";
+                    // print_r($_POST);
+                    $nslider = $this->model->newSlider($sl);
+                    if($nslider !== false){
+                        echo "New Slider Created";
+                        echo "<script>setTimeout(function(){location.href = '';}, 2000)</script>";
+                    }
+                    // echo "<pre>";
+                    // echo var_dump($uslider);
+                    // echo var_dump($_POST);
+                }else{
+                    echo 'Invalid token : New slider';
+                }
+                // regenerate token 
+                $this->view->_token = $this->genToken('_token');
+            }
+        }else{
+            $this->redirect(URL . ADMIN_BASE . '/login');
+        }
+    }
     
     // logout
     public function logout(){
         session_destroy();
         $this->redirect(ADMIN_PATH);
     }
+    
 }
 ?>
