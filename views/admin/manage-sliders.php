@@ -1,34 +1,16 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8"/>
-        <title>Document</title>
-	<script src="<?php echo CK_E_PATH ?>/ckeditor.js"></script>
-	<script src="<?php echo CK_F_PATH ?>/ckfinder.js"></script>
-	<script src="<?php echo JS_PATH ?>/jq.js"></script>
-	<script src="<?php echo JS_PATH ?>/jq.ui.js"></script>
-	<link href="<?php echo CSS_PATH ?>/ui-datepicker.css" rel="stylesheet"/>
-    </head>
-    <body>
-	<br/>
-	<a href="<?php echo ADMIN_PATH ?>">Home</a>
-	<br/>
-	----------------
-	<br/>
-	NEW SLIDER
-	
-	<form name="new-slider-form" name="new-slider" method="post"> <br/>
+<?php include 'includes/header.php'; ?>
+<?php include 'includes/sidebar.php'; ?>
+	<div class="mainbar">
+   <div class="mainbarcontainer">
+                   <div class="row">
+                       <form name="new-slider-form" name="new-slider" method="post"> <br/>
 	    Slider Image : <input name="slider-img" id="new-slider-img" size="48" type="text" /> <span onclick="finderPopup('new-slider-img')">browse</span><br/>
 	    Slider URL : <input name="slider-url" type="text" />
 	    <input name="_token_new_slider" type="hidden" value="<?php echo $this->_token ?>"/>
 	    <button>Go</button>
 	</form>
-	<br/>
-	###################
-	<br/>
-	###################
-	<br/>
-	<br/>
+	
+	
 	<?php foreach($this->sliders as $slider){ ?>
 	    <form name="edit-form" action="" method="post">
 		<img height="50" src="<?php echo strip_tags(stripslashes($slider->sl_img)) ?>"/>
@@ -45,8 +27,10 @@
 		<button>Save</button> OR <a href="<?php echo ADMIN_PATH ?>/manage-sliders&del=<?php echo strip_tags(stripslashes($slider->sl_id)) ?>">Delete</a>
 		<input name="_token" type="hidden" value="<?php echo $this->_token ?>"/>
 	    </form>
-	    ============
 	<?php } ?>
-    </body>
-    <script src="<?php echo JS_PATH ?>/main.js"></script>
-</html>
+                    
+                   </div>
+     </div>
+</div>
+	
+    <?php include 'includes/footer.php'; ?>    
