@@ -705,10 +705,9 @@ input:-webkit-autofill:active {
     margin-bottom: 30px;
 }
 .sidebar>div:nth-child(3)>ul{
-    
     padding:8px
 }
-.sidebar>div:nth-child(3)>ul>li{
+.sidebar>div:nth-child(3)>ul>a>li{
     text-align: left;
     padding:10px;
     list-style: none;
@@ -716,19 +715,24 @@ input:-webkit-autofill:active {
     border-radius: 5px;
     margin-bottom: 5px;
 }
-.sidebar>div:nth-child(3)>ul>li>a{
-    
+.sidebar>div:nth-child(3)>ul>a{
     color:white;
     font-size: 15px;
     font-weight: lighter;
     cursor: pointer;
     text-decoration: none;
+   
 }
-.sidebar>div:nth-child(3)>ul>li>i{
+.sidebar>div:nth-child(3)>ul>a>li>i{
     color:white;
-    width:20px;
-    height:20px;
+    width:25px;
+    height:25px;
     font-size: 18px;
+    margin: 0px 9px;
+}
+.sidebar>div:nth-child(3)>ul>a>li>i>img{
+    width: 25px;
+    height: 25px;
 }
 .sidebar>div:nth-child(3)>ul>li:nth-child(1){
     background: #f19b00;
