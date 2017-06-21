@@ -579,7 +579,7 @@ input:-webkit-autofill:active {
     line-height:1.8;
     top:-40px;
     text-align: center;
-    background:linear-gradient(60deg, #ec407a, #d81b60);
+    background:linear-gradient(60deg, #f19b00, #f19b00);
     color:white;
     padding:10px;
     text-align: center;
@@ -644,7 +644,7 @@ input:-webkit-autofill:active {
     
 }
 .mainbar .mainbarcontainer .row form button{
-    background:linear-gradient(60deg, #ec407a, #d81b60);
+    background:linear-gradient(60deg, #f19b00, #f19b00);
     color:white;
     box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);
     border: none;
@@ -731,7 +731,7 @@ input:-webkit-autofill:active {
     font-size: 18px;
 }
 .sidebar>div:nth-child(3)>ul>li:nth-child(1){
-    background: #e91e63;
+    background: #f19b00;
     
 }
 .sidebar>div:nth-child(3)>ul>li:hover{

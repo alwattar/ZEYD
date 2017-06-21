@@ -1,11 +1,9 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8"/>
-        <title>Document</title>
-    </head>
-    <body>
-	<form  method="post">
+<?php include 'includes/header.php'; ?>
+<?php include 'includes/sidebar.php'; ?>
+ <div class="mainbar">
+   <div class="mainbarcontainer">
+                   <div class="row">
+                       <form  method="post">
 	    <?php foreach($this->statics as $st){ ?>
 		<p>Static <?php echo $st->st_id ?></p>
 		AR : <input name="st_<?php echo $st->st_id ?>_ar" type="text" value="<?php echo $st->st_ar_text ?>"/>
@@ -22,5 +20,10 @@
 	    <input name="_token" type="hidden" value="<?php echo $this->_token ?>"/>
 	    <button>Save</button>
 	</form>
-    </body>
-</html>
+                    
+                   </div>
+     </div>
+</div>
+	
+    
+<?php include 'includes/footer.php'; ?>   

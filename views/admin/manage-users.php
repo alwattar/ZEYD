@@ -1,18 +1,12 @@
 <?php
 $users = $this->users;
 ?>
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8"/>
-        <title></title>
-    </head>
-    <body>
-	<a href=".">Back</a>
-	<br/>
-	==============
-	<br/>
-	<?php foreach($users as $user){ ?>
+<?php include 'includes/header.php'; ?>
+<?php include 'includes/sidebar.php'; ?>
+ <div class="mainbar">
+   <div class="mainbarcontainer">
+                   <div class="row">
+                      <?php foreach($users as $user){ ?>
 	    User ID : #<?php echo $user->u_id ?> <br/>
 	    User Name : <?php echo strip_tags(stripslashes($user->u_name)) ?> <br/>
 	    User login nick : <?php echo strip_tags(stripslashes($user->u_nick)) ?> <br/>
@@ -25,5 +19,9 @@ $users = $this->users;
 	    -----
 	    <br/>
 	<?php } ?>
-    </body>
-</html>
+                   </div>
+     </div>
+</div>
+
+	
+    <?php include 'includes/footer.php'; ?> 

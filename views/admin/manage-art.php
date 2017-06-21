@@ -1,23 +1,12 @@
 <?php
 $articles = $this->articles;
 ?>
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8"/>
-        <title>Document</title>
-	<script src="<?php echo CK_E_PATH ?>/ckeditor.js"></script>
-	<script src="<?php echo CK_F_PATH ?>/ckfinder.js"></script>
-	<script src="<?php echo JS_PATH ?>/jq.js"></script>
-	<script src="<?php echo JS_PATH ?>/jq.ui.js"></script>
-	<link href="<?php echo CSS_PATH ?>/ui-datepicker.css" rel="stylesheet"/>
-    </head>
-    <body>
-        <a href="./">Main</a>
-	<br/>
-	---------
-	<br/>
-	<?php foreach($articles as $art){ ?>
+<?php include 'includes/header.php'; ?>
+<?php include 'includes/sidebar.php'; ?>
+    <div class="mainbar">
+   <div class="mainbarcontainer">
+                   <div class="row">
+                       <?php foreach($articles as $art){ ?>
 	    <div id="<?php echo strip_tags(stripslashes($art->acl_id))?>">
 		Article ID: #<?php echo strip_tags(stripslashes($art->acl_id))?>
 		<br/>
@@ -41,6 +30,10 @@ $articles = $this->articles;
 		<br/>
 	    </div>
 	<?php } ?>
-    </body>
-    <script src="<?php echo JS_PATH ?>/main.js"></script>
-</html>
+                    
+                   </div>
+     </div>
+</div>    
+	
+    
+<?php include 'includes/footer.php'; ?>    
