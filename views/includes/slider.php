@@ -1,4 +1,6 @@
-
+<?php 
+$sliders = $this->sliders;
+?>
 <section>
     
     <div id="iview" >

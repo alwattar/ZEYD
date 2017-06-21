@@ -1,6 +1,5 @@
 <?php
 $ddlang = $this->dlang;
-$sliders = $this->sliders;
 $statics = $this->statics;
 $sections = (array) $this->sections;
 $aos = $this->a_o_s;

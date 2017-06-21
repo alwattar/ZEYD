@@ -7,9 +7,7 @@ class Index extends Controller{
         $this->view->dlang = $this->dlang;
     }
 
-
-    // Index Method
-    public function index(){
+    public function allSliders(){
         // get sliders
         $sliders = $this->model->getSliders();
         if($sliders != false){
@@ -17,7 +15,11 @@ class Index extends Controller{
         }else{
             $this->view->sliders = null;
         }
-        
+    }
+    // Index Method
+    public function index(){
+
+        $this->allSliders();
         // get statics
         $this->view->statics = $this->model->getIndexStatics();
         // this to get all sections from db
@@ -44,6 +46,7 @@ class Index extends Controller{
 
     // view Section
     public function viewSection(){
+        $this->allSliders();
         // if set sec id get parameterss
         if(isset($_GET['sec'])){
             $id = intval($_GET['sec']);
