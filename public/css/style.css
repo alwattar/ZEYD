@@ -85,12 +85,20 @@ font-family: 'Lateef', cursive;*/
 .secnav nav ul{
     direction: rtl;
 }
-.secnav nav ul li{
+.secnav nav ul a li{
+    border-radius: 4px;
+    transition: all ease 0.3s;
     display: inline-block;
     margin-right: 30px;
     font-size: 18px;
     font-weight: 900;
+    padding:7px;
     color:#0088cc;
+}
+.secnav nav ul a li:hover{
+    transform:  scale(1.1);
+    background: #0088cc;
+    color:white;
 }
 /****END************  Secnnav  ***************/
 /****START************  counter  ***************/
