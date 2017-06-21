@@ -37,6 +37,7 @@ $r->addRoute("/index","index@index");
 $r->addRoute("/section","index@viewSection");
 $r->addRoute("/post","index@viewPost");
 $r->addRoute("/about","index@viewAbout");
+$r->addRoute("/search","index@search");
 
 // admin controller
 $r->addRoute(ADMIN_BASE ,"admin@index");

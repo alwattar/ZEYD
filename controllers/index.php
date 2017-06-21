@@ -125,6 +125,29 @@ class Index extends Controller{
         $this->view->about = $about[0];
         $this->view->view("about");
     }
+
+    // search
+    public function search(){
+        if(isset($_GET['q'])){
+            $q = $_GET['q'];
+            // safety checking
+            $true_query = !$this->withRule($q, REGEX_SPECIAL_CHAR) && !strpos($q, '/');
+            if($true_query){
+                $q = $this->protect($q);
+                $results = $this->model->qSearchResults($q);
+                if($results != false){
+                    $this->view->results = $results;
+                }else{
+                    $this->view->results = null;
+                }
+            }else{
+                $this->view->results = null;
+            }
+        }else{
+            $this->view->results = false;
+        }
+        $this->view->view("search");
+    }
     
 }
 ?>

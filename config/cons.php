@@ -16,7 +16,7 @@ define("CK_F_PATH", PUBLIC_PATH . "/ckfinder");
 define("REGEX_CHARS_LANG",'/^[a-z]{2,2}$/');
 define("REGEX_INT",'/^[0-9]+$/');
 define("REGEX_USERNAME",'/^[a-z][a-z0-9._]{3,19}$/');
-define("REGEX_SPECIAL_CHAR",'/[\'"<>\\\]/'); // block this characters
+define("REGEX_SPECIAL_CHAR",'/[\'"=<>;\\\]/'); // block this characters
 define("REGEX_EMAIL",'/^[a-zA-Z0-9_.]+@[a-zA-Z0-9]+\.[a-zA-Z0-9.]+$/');
 define("SECRET_CAPTCHA","");
 define("ALL_LANG",'ar,en');

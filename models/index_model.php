@@ -65,6 +65,16 @@ class Index_Model extends Model{
         $ab = $this->db->table('about')->select("*");
         return $ab;
     }
+
+    // get search results
+    public function qSearchResults($q){
+        $results = $this->db
+                 ->table('articles')
+                 ->at('where (acl_title like "%'. $q .'%" or acl_content like "%'. $q .'%") and acl_lang = "'. $_SESSION['dlang'] .'"')
+                 ->select("acl_title, acl_id, acl_content, acl_date, acl_lang, acl_views");
+        return $results;
+                 
+    }
 }
 
 ?>
