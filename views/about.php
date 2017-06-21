@@ -18,7 +18,7 @@ $content = $about['ab_' . $_SESSION['dlang'] . '_content'];
     </div>
     <div class="container">
         <div class="row">
-	    <?php echo html_entity_decode(stripslashes($content)) ?>
+	    <?php echo html_entity_decode(stripslashes(nl2br($content))) ?>
         </div>
     </div>
     <hr>
