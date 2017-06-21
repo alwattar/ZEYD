@@ -166,6 +166,7 @@ font-family: 'Lateef', cursive;*/
     padding:30px 0;
     background: #1D7FBE;
     color:white;
+    direction: rtl;
 }
 .subscribe h1 {
     margin:20px 0;
