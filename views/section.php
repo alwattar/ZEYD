@@ -37,13 +37,14 @@ $arts_count = $this->arts_count;
 	        </div>
 	    </div>
 	    <div class="text-center pagenumber">
-				<?php
+	    <div class="row">
+	        <?php
 				$num_a_b = 4;
 				if(isset($_GET['p']) && $_GET['p'] != '1'){
-				    echo "<a href='?p=". 1 ."'> First Page </a>"; // first button , you can style it
+				    echo "<a href='?p=". 1 ."'> <i class='fa fa-angle-double-left' aria-hidden='true'></i> </a>"; // first button , you can style it
 				}
 				if(isset($_GET['p'])){
-				    echo "<a href='?p=". (intval($_GET['p']) - 1) ."'> Previus </a>"; // previuos button , you can style it
+				    echo "<a href='?p=". (intval($_GET['p']) - 1) ."'> <i class='fa fa-angle-left' aria-hidden='true'></i> </a>"; // previuos button , you can style it
 				}
 				if(isset($_GET['p'])){
 				    $_GET['p'] = intval($_GET['p']);
@@ -53,7 +54,7 @@ $arts_count = $this->arts_count;
 					    if($_GET['p'] != $p){
 						echo "<a href='?p={$p}'> {$p} </a>";
 					    }else{
-						echo $p; // this is current page
+						echo "<a>".$p. "</a>"; // this is current page
 					    }
 					    if($p > $max_pages) break;
 					}
@@ -63,7 +64,7 @@ $arts_count = $this->arts_count;
 					    if($_GET['p'] != $p){
 						echo "<a href='?p={$p}'> {$p} </a>";
 					    }else{
-						echo $p; // this is current page also
+						echo "<a>".$p. "</a>"; // this is current page also
 					    }
 					    if($p > $max_pages) break;
 					}
@@ -73,7 +74,7 @@ $arts_count = $this->arts_count;
 					    if($_GET['p'] != $p){
 						echo "<a href='?p={$p}'> {$p} </a>";
 					    }else{
-						echo $p; // this is current page also
+						echo "<a>".$p. "</a>"; // this is current page also
 					    }
 					    if($p > $max_pages) break;
 					}
@@ -92,27 +93,15 @@ $arts_count = $this->arts_count;
 				    echo '';
 				}
 				elseif(isset($_GET['p']) && (intval($_GET['p']) + 1) < $max_pages){
-				    echo "<a href='?p=". (intval($_GET['p']) + 1) ."'> Next </a>";
+				    echo "<a href='?p=". (intval($_GET['p']) + 1) ."'> <a href='?p=" . (1 + 1) ."'> <i class='fa fa-angle-right' aria-hidden='true'></i> </a> </a>";
 				}elseif(isset($_GET['p']) && (intval($_GET['p']) + 1) < $max_pages){
-				    echo "<a href='?p=" . (1 + 1) ."'> Next </a>"; // next button
+				    echo "<a href='?p=" . (1 + 1) ."'> <i class='fa fa-angle-right' aria-hidden='true'></i> </a>"; // next button
 				}
 				if(isset($_GET['p']) && intval($_GET['p']) != $max_pages)
-				    echo "<a href='?p=". $max_pages ."'> Last Page </a>"; // first button , you can style it
+				    echo "<a href='?p=". $max_pages ."'> <i class='fa fa-angle-double-right' aria-hidden='true'></i> </a>"; // first button , you can style it
 				?>
-		<br/>
-		<!-- <div class="row">
-                    <ul>
-			<li><i class="fa fa-angle-double-left" aria-hidden="true"></i></li>
-			<li><i class="fa fa-angle-left" aria-hidden="true"></i></li>
-			<li>1</li>
-			<li>2</li>
-			<li>3</li>
-			<li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-			<li><i class="fa fa-angle-double-right" aria-hidden="true"></i></li>
-			
-                    </ul> -->
+	    </div>
 		</div>	        
-	    
 	</section>
 
 <?php include 'includes/subscribe.php'; ?>		

@@ -229,13 +229,14 @@ font-family: 'Lateef', cursive;*/
     margin: 0 6px;
 }
 .pagenumber{
+    height: 70px;
     background: #F4F4F4;
+    
 }
-.pagenumber div ul{
-    width: 300px;
-    margin: 30px auto;
+.pagenumber .row{
+    margin-bottom: 25px;
 }
-.pagenumber div ul li{
+.pagenumber .row a{
     display: inline-block;
     background: white;
     cursor: pointer;
@@ -243,6 +244,7 @@ font-family: 'Lateef', cursive;*/
     font-size: 22px;
     color:#0088cc;
     font-weight: bold;
+    margin-right: 5px
 }
 .tall{
     background-image: linear-gradient(to right, transparent, #DBDBDB, transparent);
