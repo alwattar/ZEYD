@@ -1,5 +1,6 @@
 
 	<section class="subscribe text-center">
+           
             <div class="container">
 		<h1>للاشتراك في النشرة البريدية</h1>
 		<input  type="text" placeholder="أدخل البريد الإلكتروني"><br>
@@ -16,5 +17,6 @@
                     <a class="twitter-timeline" data-width="400" data-height="500" href="https://twitter.com/ZaidInstitution">Tweets by ZaidInstitution</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 		</div>
 	    </div>
+	    
 	</section>
 	

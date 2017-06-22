@@ -1,4 +1,5 @@
 
+    
 	<footer class="hidden-xs">
         <div class="container ">
             <div class="row ">
@@ -68,16 +69,13 @@
         
         
     </footer>
-    
-    
-	<script src="<?php echo JS_PATH ?>/jquery-1.12.4.min.js"></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'>
+</script>
 	<script src="<?php echo JS_PATH ?>/bootstrap.min.js"></script>
 	<script src="<?php echo JS_PATH ?>/npm.js"></script>
 	<script src="<?php echo JS_PATH ?>/wow.min.js"></script>
 	<script src="<?php echo JS_PATH ?>/main.js"></script>
 	<script src="<?php echo JS_PATH ?>/raphael-min.js"></script>
-	<script src="<?php echo JS_PATH ?>/jquery-1.7.1.min.js"></script>
-	
         <script src="<?php echo JS_PATH ?>/jquery.easing.js"></script>
         <script src="<?php echo JS_PATH ?>/iview.js"></script>
         <script>
@@ -91,6 +89,7 @@
 	 });
          
         </script>
+        
 	
     </body>
 

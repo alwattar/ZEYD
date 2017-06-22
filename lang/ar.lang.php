@@ -5,7 +5,7 @@ class Lang {
     /* Site Name */
     public $siteName = 'خدماتي';
     public $orga = 'خدماتي';
-
+    public $follow_us = 'تابعنا';
     /* Forms  */
     // Fields
     public $usernameField = 'اسم المستخدم';
