@@ -1,5 +1,5 @@
 <?php
-$ddlang = $this->dlang;
+$pageTitle = 'الصفحة الرئيسية';
 $statics = $this->statics;
 $sections = (array) $this->sections;
 $aos = $this->a_o_s;
@@ -39,7 +39,7 @@ $articles_num = 8; // maximum articles on each section in main page
 			<?php } ?>
 			
 		    </div>
-		    <span><a href="<?php echo URL ?>/section&sec=<?php echo $sec->sec_id ?>">--- المزيد ---</a></span>
+		    <span><a href="<?php echo URL ?>/section&sec=<?php echo $sec->sec_id ?>">--- <?php echo $ddlang->gn_more ; ?> ---</a></span>
 		</div>
 	    </section>
 	<?php } ?>

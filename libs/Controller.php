@@ -281,7 +281,8 @@ class Controller {
         $_SESSION[$SessionKey] = $token;
         return $token;
     }
-
+    
+    
     // checkSession
     public function checkUserSession(){
         // craete object from Session class

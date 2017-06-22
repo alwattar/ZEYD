@@ -17,7 +17,7 @@
 		<span>
                     <?php echo $this->ArabicDate(); ?>
 		</span>
-		<input type="text" placeholder="بحث" />
+		<input type="text" placeholder="<?php echo $ddlang->gn_search; ?> " />
             </div>
 	</div>
     </div>
@@ -30,10 +30,10 @@
 <section class="mainnav text-center">
     <nav>
 	<ul>
-            <a href="index"><li>الرئيسية</li></a>
-            <a href="search"><li>البحث</li></a>
-            <a href="about"><li>حول المؤسسة</li></a>
-            <a href="contactus"><li>تواصل معنا</li></a>
+            <a href="index"><li><?php echo $ddlang->mnHome; ?></li></a>
+            <a href="search"><li><?php echo $ddlang->mnSearch; ?></li></a>
+            <a href="about"><li><?php echo $ddlang->mnAbout; ?></li></a>
+            <a href="contactus"><li><?php echo $ddlang->mnContact; ?></li></a>
 	</ul>
     </nav>
 </section>

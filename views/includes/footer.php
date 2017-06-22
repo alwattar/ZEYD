@@ -5,7 +5,7 @@
             <div class="row ">
             <div class="col-md-4 pull-right col-xs-12">
                 <div class="footer-social">
-                    <h3>follow us </h3>
+                    <h3><?php echo $ddlang->footer_Follow ;?> </h3>
                     <ul class="list-inline">
                         <li><i class="fa fa-facebook" aria-hidden="true"></i></li>
                         <li><i class="fa fa-twitter" aria-hidden="true"></i></li>
@@ -15,25 +15,25 @@
                     </ul>
                 </div>
                 <div class="contact-us">
-                    <h3>contact_us </h3>
-                    <p><span><i class="fa fa-map-marker" aria-hidden="true"></i></span>address </p>
-                    <p><span><i class="fa fa-phone" aria-hidden="true"></i></span> phones </p>
-                    <p><span><i class="fa fa-envelope" aria-hidden="true"></i></span>our_email <span class="zaidemail">INFO@ZEYD.ORG</span></p>
+                    <h3><?php echo $ddlang->footer_contact ;?></h3>
+                    <p><span><i class="fa fa-map-marker" aria-hidden="true"></i></span><?php echo $ddlang->footer_location ;?> </p>
+                    <p><span><i class="fa fa-phone" aria-hidden="true"></i></span><?php echo $ddlang->footer_phone ;?></p>
+                    <p><span><i class="fa fa-envelope" aria-hidden="true"></i></span><?php echo $ddlang->footer_email ;?><span class="zaidemail">INFO@ZEYD.ORG</span></p>
                 </div>
             </div>
             <div class="col-md-4 col-xs-12 text-center pull-right zlfooter">
                 <img src="<?php echo PUBLIC_PATH ?>/img/logo/logozaid.png"/>
                 <div>
                     <p>
-			under_logo 
+			<?php echo $ddlang->footer_desc ;?>
                     </p>
                 </div>
             </div>
             <div class="col-md-4 col-xs-12 pull-right">
-                <h3>to_donate </h3>
+                <h3><?php echo $ddlang->footer_donatehead ;?></h3>
                 <div class="donatebankdiv">
-                    <h5>orga_bank_acc <span> Vakıf Katılım</span></h5>
-                    <h5>acc_owner <span> ZEYD BİN SABİT YARDIMLAŞMA</span></h5>
+                    <h5><?php echo $ddlang->footer_bank ;?><span> Vakıf Katılım</span></h5>
+                    <h5><?php echo $ddlang->footer_bankowner ;?><span> ZEYD BİN SABİT YARDIMLAŞMA</span></h5>
                     <div class="donatebank">
                         <img src="<?php echo PUBLIC_PATH ?>/img/logo/v.png" />
                         <p>
@@ -43,12 +43,12 @@
                         </p>
                     </div>
                     <div class="clearfix"></div>
-                    <h6>swift_code<span> VAKFRISXXX</span></h6>
+                    <h6><?php echo $ddlang->footer_bankswift ;?><span> VAKFRISXXX</span></h6>
                 </div>
                 <br />
                 <div class="donatebankdiv">
-                    <h5>orga_bank_acc <span> ALBARAKA</span></h5>
-                    <h5>acc_owner<span> ZEYD BİN SABİT YARDIMLAŞMA DERNĞİ</span></h5>
+                    <h5><?php echo $ddlang->footer_bank ;?><span> ALBARAKA</span></h5>
+                    <h5><?php echo $ddlang->footer_bankowner ;?><span> ZEYD BİN SABİT YARDIMLAŞMA DERNĞİ</span></h5>
                     <div class="donatebank">
                         <img src="<?php echo PUBLIC_PATH ?>/img/logo/b.png" />
                         <p>
@@ -58,7 +58,7 @@
                         </p>
                     </div>
                     <div class="clearfix"></div>
-                    <h6>swift_code<span> BTFHTRISXXX</span></h6>
+                    <h6><?php echo $ddlang->footer_bankswift ;?><span> BTFHTRISXXX</span></h6>
                 </div>
             </div>
         </div>

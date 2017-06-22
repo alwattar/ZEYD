@@ -1,9 +1,12 @@
+<?php $ddlang = $this->dlang; ?>
 <!DOCTYPE html>
 <html>
     <head>
 	<meta charset="UTF-8">
-	<title>Start</title>
+	<title><?php $this->getTitle() ?> - <?php echo $ddlang->orga ?></title>
 	<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Anton|Cairo|Dancing+Script|Fjalla+One|Gloria+Hallelujah|Lateef|Lato|Lobster|Open+Sans|Pacifico|Play|Ravi+Prakash|Reem+Kufi|Roboto|Shadows+Into+Light" rel="stylesheet">
+	<link rel="icon" type="image/png" href="<?php echo PUBLIC_PATH ?>/img/logo/logo_thumb.png" >
+	<link rel="shortcut icon" href="<?php echo PUBLIC_PATH ?>/img/logo/logo_thumb.png" type="image/png">
 	<link rel="stylesheet" href="<?php echo CSS_PATH ?>/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php echo CSS_PATH ?>/font-awesome.min.css">
 	<link rel="stylesheet" href="<?php echo CSS_PATH ?>/animate.css">
