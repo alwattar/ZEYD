@@ -55,7 +55,7 @@ try{
 
     $('.secnav nav ul a').click(function(){
 	$('html, body').animate({
-            scrollTop: $('#' + $(this).data('value')).offset().top - 250
+            scrollTop: $('#' + $(this).data('value')).offset().top - 370
 	},1000);
     });
     //----END---Smooth Scroll TO DIV ---------------//
