@@ -10,16 +10,25 @@
             </div>
             <div class="col-lg-4">
 		
-		&nbsp;&nbsp;
+		
 		<a>
-                    <?php echo $this->ArabicDay(); ?>
+                    <?php
+		    if($_SESSION['dlang'] == 'ar'){
+			echo $this->ArabicDay();
+			echo $this->ArabicDate();
+		    }else{
+			echo date('D\ d, M m\, Y');
+		    }
+		    ?>
 		</a>
-		<span>
-                    <?php echo $this->ArabicDate(); ?>
-		</span>
 		<input type="text" placeholder="<?php echo $ddlang->gn_search; ?> " />
             </div>
 	</div>
+	<?php
+	$langs = explode(',', ALL_LANG);
+	foreach($langs as $lang){ ?>
+	    <a href="<?php $this->langToGet($lang) ?>"><?php echo $lang ?></a>
+	<?php } ?>
     </div>
 </section>
 <section class="logo">

@@ -1,12 +1,11 @@
-
+<?php 
+?>
 <section class="secnav text-center">
     <nav>
 	<ul>
-            <a href=""><li>القسم التعليمي</li></a>
-            <a href=""><li>القسم الخدمي</li></a>
-            <a href=""><li>قسم الأسرة </li></a>
-            <a href=""><li>القسم الدعوي</li></a>
-            <a href=""><li>قسم المشاريع</li></a>
+	    <?php foreach($sections as $sec){ ?>
+		<a href="#section_<?php echo stripslashes(strip_tags($sec->sec_id)) ?>"><li><?php echo stripslashes(strip_tags($sec->sec_name)) ?></li></a>
+	    <?php } ?>
 	</ul>
     </nav>
 </section>

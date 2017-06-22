@@ -320,5 +320,18 @@ class Controller {
         else
             return false;
     }
+
+    // add changelang to get
+    public function langToGet($theLang){
+        $newGetUrl = URL . '/' . $_GET['route'];
+        $_GET['dlang'] = $theLang;
+        foreach($_GET as $k => $v){
+            if($k == 'route') continue;
+            else{
+                $newGetUrl .= '&' . $k . '=' . $v;
+            }
+        }
+        echo $newGetUrl;
+    }
 }   
 ?>

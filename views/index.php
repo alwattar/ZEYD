@@ -6,19 +6,18 @@ $aos = $this->a_o_s;
 $articles_num = 8; // maximum articles on each section in main page
 $stitle = (array) $this->stitle;
 ?>
-
 <?php include 'includes/header.php'; ?>
 <?php include 'includes/mainnav.php'; ?>
 <?php include 'includes/slider.php'; ?>
 <?php include 'includes/secnav.php'; ?>	
 <?php include 'includes/statics.php'; ?>	
-	
+
 	<?php foreach($sections as $key => $sec){ ?>
 	    <section class="sectionrow">
 		<div class="container text-center">
 		    <div class="row">
 			<img src="<?php echo $sec->sec_logo ?>">
-			<h2><?php echo strip_tags(stripslashes($sec->sec_name)) ?></h2>
+			<h2 id="section_<?php echo strip_tags(stripslashes($sec->sec_id)) ?>"><?php echo strip_tags(stripslashes($sec->sec_name)) ?></h2>
 			<?php
 			$acls = $aos($sec->sec_id);
 			?>

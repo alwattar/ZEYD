@@ -19,5 +19,5 @@ define("REGEX_USERNAME",'/^[a-z][a-z0-9._]{3,19}$/');
 define("REGEX_SPECIAL_CHAR",'/[\'"=<>;\\\]/'); // block this characters
 define("REGEX_EMAIL",'/^[a-zA-Z0-9_.]+@[a-zA-Z0-9]+\.[a-zA-Z0-9.]+$/');
 define("SECRET_CAPTCHA","");
-define("ALL_LANG",'ar,en');
+define("ALL_LANG",'ar,en,tr');
 ?>
