@@ -8,8 +8,13 @@ class Index_Model extends Model{
 
     // new subscribe
     public function subscribe($email){
-        $s = $this->db->table('subemails')->insert('(e_email) VALUES("'. $email .'")');
-        return $s;
+        $get_emails = $this->db->table("subemails WHERE e_email = '{$email}'")->select("*");
+        if($get_emails > 0)
+            return false;
+        else{
+            $s = $this->db->table('subemails')->insert('(e_email) VALUES("'. $email .'")');
+            return $s;
+        }
     }
     
     // get static stitle
