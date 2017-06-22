@@ -18,9 +18,9 @@
 		    <br/>
 		<?php } ?>
 		<input name="_token" type="hidden" value="<?php echo $this->_token ?>"/>
-		<h4>Statics Title AR : <input name="stitle_ar" size="48" type="text" value="<?php echo stripslashes(strip_tags$this->stitle->stitle_ar) ?>"/></h4>
-		<h4>Statics Title EN : <input name="stitle_en" size="48" type="text" value="<?php echo stripslashes(strip_tags$this->stitle->stitle_en) ?>"/></h4>
-		<h4>Statics Title TR : <input name="stitle_tr" size="48" type="text" value="<?php echo stripslashes(strip_tags$this->stitle->stitle_tr) ?>"/></h4>
+		<h4>Statics Title AR : <input name="stitle_ar" size="48" type="text" value="<?php echo stripslashes(strip_tags($this->stitle->stitle_ar)) ?>"/></h4>
+		<h4>Statics Title EN : <input name="stitle_en" size="48" type="text" value="<?php echo stripslashes(strip_tags($this->stitle->stitle_en)) ?>"/></h4>
+		<h4>Statics Title TR : <input name="stitle_tr" size="48" type="text" value="<?php echo stripslashes(strip_tags($this->stitle->stitle_tr)) ?>"/></h4>
 		<button>Save</button>
 	    </form>
             
