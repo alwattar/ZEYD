@@ -8,6 +8,13 @@ class Index extends Controller{
     }
 
 
+    public function getAllSections(){
+        $sections = $this->model->getSections();
+        if($sections !== false && is_array($sections))  // if sections > 0
+            $this->view->sections = $sections;
+        else  // if sections == 0
+            $this->view->sections = [false];
+    }
     public function getStitle(){
         // get sliders
         $stitle = $this->model->getStitle();
@@ -35,11 +42,7 @@ class Index extends Controller{
         // get statics
         $this->view->statics = $this->model->getIndexStatics();
         // this to get all sections from db
-        $sections = $this->model->getSections();
-        if($sections !== false && is_array($sections))  // if sections > 0
-            $this->view->sections = $sections;
-        else  // if sections == 0
-            $this->view->sections = [false];
+        $this->getAllSections();
 
         // Articel of section
         $this->view->a_o_s = function($section_id){
@@ -58,6 +61,7 @@ class Index extends Controller{
 
     // view Section
     public function viewSection(){
+        $this->getAllSections();
         $this->allSliders();
         // if set sec id get parameterss
         if(isset($_GET['sec'])){
@@ -111,6 +115,7 @@ class Index extends Controller{
     }
     // view post
     public function viewPost(){
+        $this->getAllSections();
         // if set id of article
         if(isset($_GET['art'])){
             $id = intval($_GET['art']);
