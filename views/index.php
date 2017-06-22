@@ -4,8 +4,9 @@ $statics = $this->statics;
 $sections = (array) $this->sections;
 $aos = $this->a_o_s;
 $articles_num = 8; // maximum articles on each section in main page
-
+$stitle = (array) $this->stitle;
 ?>
+
 <?php include 'includes/header.php'; ?>
 <?php include 'includes/mainnav.php'; ?>
 <?php include 'includes/slider.php'; ?>

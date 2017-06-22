@@ -178,5 +178,18 @@ class Admin_Model extends Model{
                ->update("ab_" . $lang . "_content = '" . $content . "'");
         return $uabout;
     }
+
+    public function updateStitle($st){
+        $st = $this->db
+            ->table('stitle')
+            ->at('where stitle_id = 1')
+            ->update('stitle_ar = :ar, stitle_en = :en, stitle_tr = :tr', $st);
+        return $st;
+    }
+
+    public function getStitle(){
+        $sti = $this->db->table('stitle')->select("*");
+        return $sti;
+    }
 }
 ?>

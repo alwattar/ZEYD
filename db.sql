@@ -74,6 +74,15 @@ ab_en_content text,
 ab_tr_content text
 )Engine=InnoDB default charset utf8;
 
+create table stitle(
+stitle_id int(10) auto_increment primary key,
+stitle_ar varchar(255) not null default '---',
+stitle_en varchar(255) not null default '---',
+stitle_tr varchar(255) not null default '---',
+INDEX stitle_tr_index(stitle_tr),
+INDEX stitle_en_index(stitle_en),
+INDEX stitle_ar_index(stitle_ar)
+)Engine=InnoDB default charset utf8;
 
 create table statics(
 st_id int(10) auto_increment primary key,

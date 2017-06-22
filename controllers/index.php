@@ -7,6 +7,17 @@ class Index extends Controller{
         $this->view->dlang = $this->dlang;
     }
 
+
+    public function getStitle(){
+        // get sliders
+        $stitle = $this->model->getStitle();
+        if($stitle != false){
+            $this->view->stitle = $stitle[0];
+        }else{
+            $this->view->stitle = null;
+        }
+    }
+    
     public function allSliders(){
         // get sliders
         $sliders = $this->model->getSliders();
@@ -19,6 +30,7 @@ class Index extends Controller{
     // Index Method
     public function index(){
 
+        $this->getStitle();
         $this->allSliders();
         // get statics
         $this->view->statics = $this->model->getIndexStatics();

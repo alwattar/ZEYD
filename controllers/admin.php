@@ -531,10 +531,13 @@ class Admin extends Controller{
         if($this->checkUserSession() === true){
             if($_SESSION['u_type'] == 0){
                 $statics = $this->model->getIndexStatics();
+                $stitle_content = $this->model->getStitle();
+                
                 if(isset($_POST['_token'])){
                     $save_statics_token = $this->protect($_POST['_token']);
                     $real_token = $_SESSION['_token'];
                     if($save_statics_token === $real_token){
+                        // statics
                         $statics_data = [];
                         for($x = 1; $x <= 5; $x++){
                             $arr = [
@@ -544,10 +547,20 @@ class Admin extends Controller{
                                 'tr' => $_POST['st_' . $x . '_tr'],
                                 'num' => $_POST['num_' . $x],
                             ];
-                            $statics_data[] = $arr;
+                            $statics_data[] = $arr;   
                         }
                         $update_statics = $this->model->updateStatics($statics_data);
-                        if($update_statics === true){
+
+                        // statics title
+                        $stitle = [
+                            'ar' => $this->protect($_POST['stitle_ar']),
+                            'en' => $this->protect($_POST['stitle_en']),
+                            'tr' => $this->protect($_POST['stitle_tr']),
+                        ];
+                        
+                        $update_stitle = $this->model->updateStitle($stitle);
+                        
+                        if($update_statics != false && $update_stitle != false){
                             echo '<span style="color:green">done</span>';
                             echo "<script>setTimeout(function(){location.href = '';}, 2000)</script>";
                             // $this->redirect(URL . ADMIN_BASE . '/manage-statics');
@@ -566,6 +579,12 @@ class Admin extends Controller{
                     $this->view->statics = $statics;
                 else
                     $this->view->statics = [];
+
+                if($stitle_content !== false)
+                    $this->view->stitle = $stitle_content[0];
+                else
+                    $this->view->statics = [];
+                
                 $this->view->view('/admin/manage-statics');
             }else{
                 $this->view->view('/admin/permission-denied');

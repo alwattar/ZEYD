@@ -6,8 +6,13 @@ class Index_Model extends Model{
         parent::__construct();
     }
 
+    // get static stitle
+    public function getStitle(){
+        $sti = $this->db->table('stitle')->select("*");
+        return $sti;
+    }
+    
     // get sliders
-
     public function getSliders(){
         $sl = $this->db->table('slider')->select("sl_img, sl_url, sl_content");
         return $sl;
