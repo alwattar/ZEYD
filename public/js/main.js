@@ -33,12 +33,12 @@ function finderPopup(inputId) {
     } );
 }
 try{
-var ckeditor = CKEDITOR.replace( 'ckeditor',{
-    filebrowserBrowseUrl: baseUrl + '/public/ckfinder/ckfinder.html',
-    filebrowserImageBrowseUrl: baseUrl + '/public/ckfinder/ckfinder.html?type=Images',
-    filebrowserUploadUrl: baseUrl + '/public/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
-    filebrowserImageUploadUrl: baseUrl + '/public/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'
-});
+    var ckeditor = CKEDITOR.replace( 'ckeditor',{
+	filebrowserBrowseUrl: baseUrl + '/public/ckfinder/ckfinder.html',
+	filebrowserImageBrowseUrl: baseUrl + '/public/ckfinder/ckfinder.html?type=Images',
+	filebrowserUploadUrl: baseUrl + '/public/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+	filebrowserImageUploadUrl: baseUrl + '/public/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'
+    });
 }catch(err){
     console.log(err);
 }
@@ -55,7 +55,7 @@ try{
 
     $('.secnav nav ul a').click(function(){
 	$('html, body').animate({
-            scrollTop: $('#' + $(this).data('value')).offset().top
+            scrollTop: $('#' + $(this).data('value')).offset().top - 250
 	},1000);
     });
     //----END---Smooth Scroll TO DIV ---------------//
@@ -78,48 +78,48 @@ try{
 
 try{
     $(document).ready(function() {
-  var stickyNavTop = $('.mainnav').offset().top;
+	var stickyNavTop = $('.mainnav').offset().top;
 
-  var stickyNav = function(){
-    var scrollTop = $(window).scrollTop();
+	var stickyNav = function(){
+	    var scrollTop = $(window).scrollTop();
 
-    if (scrollTop > stickyNavTop) { 
-      $('.mainnav').addClass('sticky');
-    } else {
-      $('.mainnav').removeClass('sticky'); 
-    }
-  };
+	    if (scrollTop > stickyNavTop) { 
+		$('.mainnav').addClass('sticky');
+	    } else {
+		$('.mainnav').removeClass('sticky'); 
+	    }
+	};
 
-  stickyNav();
+	stickyNav();
 
-  $(window).scroll(function() {
-    stickyNav();
-  });
-});
+	$(window).scroll(function() {
+	    stickyNav();
+	});
+    });
 }catch(err){
     console.log(err);
 }
 
 try{
     $(document).ready(function() {
-  var stickyNavTop = $('.secnav').offset().top;
+	var stickyNavTop = $('.secnav').offset().top;
 
-  var stickyNav = function(){
-    var scrollTop = $(window).scrollTop();
+	var stickyNav = function(){
+	    var scrollTop = $(window).scrollTop();
 
-    if (scrollTop > stickyNavTop) { 
-      $('.secnav').addClass('sticky2');
-    } else {
-      $('.secnav').removeClass('sticky2'); 
-    }
-  };
+	    if (scrollTop > stickyNavTop) { 
+		$('.secnav').addClass('sticky2');
+	    } else {
+		$('.secnav').removeClass('sticky2'); 
+	    }
+	};
 
-  stickyNav();
+	stickyNav();
 
-  $(window).scroll(function() {
-    stickyNav();
-  });
-});
+	$(window).scroll(function() {
+	    stickyNav();
+	});
+    });
 }catch(err){
     console.log(err);
 }
