@@ -12,8 +12,6 @@ class Index extends Controller{
             $subscribe_token = $this->protect($_POST['_token']);
             $real_token = $_SESSION['_token'];
             if($subscribe_token == $real_token){
-                // generate token
-                $this->view->_token = $this->genToken('_token');
                 $email = $this->protect($_POST['subemail']);
                 $true_email = $this->withRule($email, REGEX_EMAIL);
                 if($true_email){
@@ -29,6 +27,8 @@ class Index extends Controller{
             }else{
                 echo 'Invalid TOKEN !!';
             }
+            // generate token
+            $this->view->_token = $this->genToken('_token');
         }else{
             // generate token
             $this->view->_token = $this->genToken('_token');
