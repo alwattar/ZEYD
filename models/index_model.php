@@ -6,6 +6,12 @@ class Index_Model extends Model{
         parent::__construct();
     }
 
+    // new subscribe
+    public function subscribe($email){
+        $s = $this->db->table('subemails')->insert('(e_email) VALUES("'. $email .'")');
+        return $s;
+    }
+    
     // get static stitle
     public function getStitle(){
         $sti = $this->db->table('stitle')->select("*");

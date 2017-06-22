@@ -7,7 +7,34 @@ class Index extends Controller{
         $this->view->dlang = $this->dlang;
     }
 
-
+    public function subscribe(){
+        if(isset($_POST['_token'])){
+            $subscribe_token = $this->protect($_POST['_token']);
+            $real_token = $_SESSION['_token'];
+            if($subscribe_token == $real_token){
+                // generate token
+                $this->view->_token = $this->genToken('_token');
+                $email = $this->protect($_POST['subemail']);
+                $true_email = $this->withRule($email, REGEX_EMAIL);
+                if($true_email){
+                    $subsc = $this->model->subscribe($email);
+                    if($subsc === false){
+                        echo "<br/>This Email exists!";
+                    }else{
+                        echo "Subscribe Done!";
+                    }
+                }else{
+                    echo 'Invalid email !!';
+                }
+            }else{
+                echo 'Invalid TOKEN !!';
+            }
+        }else{
+            // generate token
+            $this->view->_token = $this->genToken('_token');
+        }
+    }
+    
     public function getAllSections(){
         $sections = $this->model->getSections();
         if($sections !== false && is_array($sections))  // if sections > 0
@@ -36,7 +63,7 @@ class Index extends Controller{
     }
     // Index Method
     public function index(){
-
+        $this->subscribe();
         $this->getStitle();
         $this->allSliders();
         // get statics
@@ -61,6 +88,7 @@ class Index extends Controller{
 
     // view Section
     public function viewSection(){
+        $this->subscribe();
         $this->getAllSections();
         $this->allSliders();
         // if set sec id get parameterss
@@ -115,6 +143,7 @@ class Index extends Controller{
     }
     // view post
     public function viewPost(){
+        $this->subscribe();
         $this->getAllSections();
         // if set id of article
         if(isset($_GET['art'])){
@@ -138,6 +167,7 @@ class Index extends Controller{
 
     // view about page
     public function viewAbout(){
+        $this->subscribe();
         $about = $this->model->getAbout();
         $this->view->about = $about[0];
         $this->view->view("about");
@@ -145,6 +175,7 @@ class Index extends Controller{
 
     // search
     public function search(){
+        $this->subscribe();
         if(isset($_GET['q'])){
             $q = $_GET['q'];
             // safety checking

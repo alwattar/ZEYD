@@ -96,6 +96,13 @@ INDEX st_en_text_index(st_en_text),
 INDEX st_ar_text_index(st_ar_text)
 )Engine=InnoDB default charset utf8;
 
+
+create table subemails(
+e_id int(10) auto_increment primary key,
+e_email varchar(50) not null,
+UNIQUE (e_email)
+)Engine=InnoDB default charset utf8;
+
 INSERT INTO `statics` (`st_id`, `st_ar_text`, `st_en_text`, `st_tr_text`, `st_number`) VALUES
 (1, 'قطاعات مختلفة مجال العمل', 'en en قطاعات مختلفة مجال العمل', 'tr tr قطاعات مختلفة مجال العمل', 2404402),
 (2, 'دولار قيمة المشاريع', 'en en دولار قيمة المشاريع', 'tr tr دولار قيمة المشاريع', 200),
