@@ -53,7 +53,7 @@ try{
     //----END----------ANIMATE ON SCROLL------------//
     //----START----Smooth Scroll TO DIV -------------//
 
-    $('.menu ul li a').click(function(){
+    $('.secnav nav ul a').click(function(){
 	$('html, body').animate({
             scrollTop: $('#' + $(this).data('value')).offset().top
 	},1000);

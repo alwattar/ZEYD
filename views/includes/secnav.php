@@ -4,7 +4,7 @@
     <nav>
 	<ul>
 	    <?php foreach($this->sections as $sec){ ?>
-		<a href="#section_<?php echo stripslashes(strip_tags($sec->sec_id)) ?>"><li><?php echo stripslashes(strip_tags($sec->sec_name)) ?></li></a>
+		<a data-value="section_<?php echo stripslashes(strip_tags($sec->sec_id)) ?>" href="#"><li><?php echo stripslashes(strip_tags($sec->sec_name)) ?></li></a>
 	    <?php } ?>
 	</ul>
     </nav>

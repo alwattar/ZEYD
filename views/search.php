@@ -1,3 +1,4 @@
+<?php $pageTitle = $this->dlang->mnSearch; ?>
 <?php include 'includes/header.php'; ?>
 <?php include 'includes/mainnav.php'; ?>
 
