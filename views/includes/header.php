@@ -3,7 +3,7 @@
 <html>
     <head>
 	<meta charset="UTF-8">
-	<title><?php $this->getTitle() ?> - <?php echo $ddlang->orga ?></title>
+	<title><?php echo $pageTitle ; ?> - <?php echo $this->dlang->siteName ; ?></title>
 	<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Anton|Cairo|Dancing+Script|Fjalla+One|Gloria+Hallelujah|Lateef|Lato|Lobster|Open+Sans|Pacifico|Play|Ravi+Prakash|Reem+Kufi|Roboto|Shadows+Into+Light" rel="stylesheet">
 	<link rel="icon" type="image/png" href="<?php echo PUBLIC_PATH ?>/img/logo/logo_thumb.png" >
 	<link rel="shortcut icon" href="<?php echo PUBLIC_PATH ?>/img/logo/logo_thumb.png" type="image/png">

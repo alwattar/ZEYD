@@ -9,6 +9,7 @@ class Lang {
     /* Site Name */
     public $siteName = 'مؤسسة زيد بن ثابت الأهلية';
     public $orga = 'خدماتي';
+    public $HomePage = 'الرئيسية';
 
     // Fields
     public $usernameField = 'اسم المستخدم';

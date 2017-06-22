@@ -1,6 +1,6 @@
 <?php 
 $art = $this->art;
-
+$pageTitle= $art->acl_title;
 ?>
 <?php include 'includes/header.php'; ?>
 <?php include 'includes/mainnav.php'; ?>

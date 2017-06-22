@@ -9,6 +9,7 @@ class Lang {
     /* Site Name */
     public $siteName = 'ZEYD BIN SABIT DERGNE';
     public $orga = 'خدماتي';
+    public $HomePage = 'ANA SAYFA';
 
     // Fields
     public $usernameField = 'اسم المستخدم';

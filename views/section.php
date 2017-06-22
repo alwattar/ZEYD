@@ -4,6 +4,7 @@ $sec = $this->sec;
 $arts = $this->arts;
 $max_pages = $this->max_pages;
 $arts_count = $this->arts_count;
+$pageTitle= $sec->sec_name;
 ?>
 <?php include 'includes/header.php'; ?>
 <?php include 'includes/mainnav.php'; ?>

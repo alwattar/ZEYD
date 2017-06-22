@@ -1,5 +1,5 @@
 <?php
-$pageTitle = 'الصفحة الرئيسية';
+$pageTitle = $this->dlang->HomePage;
 $statics = $this->statics;
 $sections = (array) $this->sections;
 $aos = $this->a_o_s;

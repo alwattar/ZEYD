@@ -9,6 +9,7 @@ class Lang {
     /* Site Name */
     public $siteName = 'ZEYD BIN SABIT';
     public $orga = 'My Services';
+    public $HomePage = 'HOME';
 
     // Fields
     public $usernameField = 'Username';

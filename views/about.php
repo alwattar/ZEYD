@@ -1,4 +1,5 @@
 <?php 
+$pageTitle = $this->dlang->mnAbout;
 $about = (array) $this->about;
 $content = $about['ab_' . $_SESSION['dlang'] . '_content'];
 ?>
