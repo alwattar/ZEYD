@@ -15,9 +15,9 @@ $sections = $this->sections;
                             
                              
                             <select name="acl-section">
-                            <?php foreach($sections as $sec){ ?>
-                                <option value="">Article Section</option>
-                                <option value="<?php echo $sec->sec_id ?>"><?php echo strip_tags(stripslashes($sec->sec_name)) ?></option>
+				<option value="">Article Section</option>
+				<?php foreach($sections as $sec){ ?>
+                                <option value="<?php echo $sec->sec_id ?>"><?php echo strip_tags(stripslashes($sec->sec_name_ar)) ?> - <?php echo strip_tags(stripslashes($sec->sec_name_en)) ?> - <?php echo strip_tags(stripslashes($sec->sec_name_tr)) ?></option>
                             <?php } ?>
                             </select>
                             <a href="<?php echo ADMIN_PATH ?>/new-section">Create New Section</a><br/>
