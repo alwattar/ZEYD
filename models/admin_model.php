@@ -56,7 +56,7 @@ class Admin_Model extends Model{
         return $all_art;
     }
 
-
+    
     // get all articles
     public function getArticleById($id){
         $art = $this->db->table('articles')

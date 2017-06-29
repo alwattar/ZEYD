@@ -63,7 +63,7 @@ class Index_Model extends Model{
     // get Section By Id
     public function getSectionById($id){
         $section = $this->db->table('sections')
-                 ->at('WHERE sec_id = ' . $id)
+                 ->at('WHERE sec_id = "' . $id . '"')
                  ->select("sec_id,sec_name,sec_logo");
 
         return $section;
