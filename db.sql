@@ -17,11 +17,15 @@ INDEX u_name_index(u_name)
 create table sections(
 sec_id int(255) auto_increment primary key,
 sec_logo varchar(50) not null default '--',
-sec_name varchar(50) not null,
+sec_name_ar varchar(50) not null,
+sec_name_en varchar(50) not null,
+sec_name_tr varchar(50) not null,
 sec_user int(255) not null,
 sec_date varchar(50) not null,
 Foreign key (sec_user) references users(u_id),
-INDEX sec_name_index(sec_name),
+INDEX sec_name_ar_index(sec_name_ar),
+INDEX sec_name_en_index(sec_name_en),
+INDEX sec_name_tr_index(sec_name_tr),
 INDEX sec_id_index(sec_id),
 INDEX sec_date_index(sec_date),
 INDEX sec_logo_index(sec_logo)
