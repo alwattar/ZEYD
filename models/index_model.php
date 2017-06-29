@@ -36,7 +36,7 @@ class Index_Model extends Model{
     
     // get all section
     public function getSections(){
-        return $this->db->table('sections')->select('sec_id,sec_logo,sec_name,sec_id');
+        return $this->db->table('sections')->select('sec_id,sec_logo,sec_name_ar,sec_name_en,sec_name_tr,sec_id');
     }
 
     // get all artiles as Sessio lang
@@ -50,7 +50,7 @@ class Index_Model extends Model{
     public function getArticleById($id){
         return $this->db->table('articles')
             ->at('inner join sections on sections.sec_id = articles.acl_section where acl_id = ' . $id)
-            ->select('articles.acl_id,articles.acl_views, articles.acl_section, articles.acl_title, articles.acl_img, articles.acl_content,articles.acl_date,articles.acl_user, sections.sec_id,sections.sec_name');
+            ->select('articles.acl_id,articles.acl_views, articles.acl_section, articles.acl_title, articles.acl_img, articles.acl_content,articles.acl_date,articles.acl_user, sections.sec_id,sections.sec_name_ar,sections.sec_name_en,sections.sec_name_tr');
     }
 
     // update article views
@@ -64,7 +64,7 @@ class Index_Model extends Model{
     public function getSectionById($id){
         $section = $this->db->table('sections')
                  ->at('WHERE sec_id = "' . $id . '"')
-                 ->select("sec_id,sec_name,sec_logo");
+                 ->select("sec_id,sec_name_ar,sec_name_en,sec_name_tr,sec_logo");
 
         return $section;
     }

@@ -4,7 +4,8 @@ $arts = $this->arts;
 $sec = $this->sec;
 $max_pages = $this->max_pages;
 $arts_count = $this->arts_count;
-$pageTitle= $sec->sec_name;
+$sec = (array) $sec;
+$pageTitle= $sec['sec_name_'. $_SESSION['dlang']];
 ?>
 <?php include 'includes/header.php'; ?>
 <?php include 'includes/mainnav.php'; ?>
@@ -13,8 +14,8 @@ $pageTitle= $sec->sec_name;
 <section>
     <div class="sec-head">
 	<div class="container text-center ">
-            <img src="<?php echo strip_tags(stripslashes($sec->sec_logo)) ?>">
-            <h1><?php echo strip_tags(stripslashes($sec->sec_name)) ?></h1>
+            <img src="<?php echo strip_tags(stripslashes($sec['sec_logo'])) ?>">
+            <h1><?php echo strip_tags(stripslashes($sec['sec_name_'. $_SESSION['dlang']])) ?></h1>
 	</div>
     </div>
     <div class="sec-header">
@@ -30,7 +31,7 @@ $pageTitle= $sec->sec_name;
 			?>
 			<p><?php echo $content ?></p>
 			<p><i class="fa fa-calendar"></i> <?php echo strip_tags(stripslashes($art->acl_date)) ?></p>
-			<p><i class="fa fa-tag"></i><a href="<?php echo URL ?>/section&sec=<?php echo $sec->sec_id ?>"><?php echo strip_tags(stripslashes($sec->sec_name)) ?></a></p>
+			<p><i class="fa fa-tag"></i><a href="<?php echo URL ?>/section&sec=<?php echo $sec->sec_id ?>"><?php echo strip_tags(stripslashes($sec['sec_name_' . $_SESSION['dlang']])) ?></a></p>
 	            </div>
 		<?php } ?>
 	    </div>

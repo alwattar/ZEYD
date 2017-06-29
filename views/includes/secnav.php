@@ -4,7 +4,11 @@
     <nav>
 	<ul>
 	    <?php foreach($this->sections as $sect){ ?>
-		<a data-value="section_<?php echo stripslashes(strip_tags($sect->sec_id)) ?>" href="#"><li><?php echo stripslashes(strip_tags($sect->sec_name)) ?></li></a>
+		<a data-value="section_<?php echo stripslashes(strip_tags($sect->sec_id)) ?>" href="#"><li><?php
+													   $sect = (array) $sect;
+													   echo strip_tags(stripslashes($sect['sec_name_' . $_SESSION['dlang']]));
+													   $sect = (object) $sect;
+													   ?></li></a>
 	    <?php } ?>
 	</ul>
     </nav>
