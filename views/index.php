@@ -29,7 +29,7 @@ $stitle = (array) $this->stitle;
 				<h4><a href="<?php echo URL ?>/post&art=<?php echo $art->acl_id ?>"><?php echo stripslashes($art->acl_title) ?></a></h4> <!-- It must be كامل LOL -->
 				<?php
 				$content = strip_tags(html_entity_decode(stripslashes($art->acl_content)));
-				$content = substr($content, 0, 40);
+				$content = mb_substr($content, 0, 40, "utf-8");
 				?>
                                 <p><?php echo $content ?></p>
 				<p><i class="fa fa-calendar"></i><?php echo $art->acl_date ?></p>
