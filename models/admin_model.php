@@ -22,7 +22,7 @@ class Admin_Model extends Model{
 
     // get all section
     public function getSections(){
-        return $this->db->table('sections')->select('sec_id,sec_logo,sec_name,sec_id');
+        return $this->db->table('sections')->select('sec_id,sec_logo,sec_name_ar,sec_name_en,sec_name_tr,sec_id');
     }
 
     // insert new article
@@ -45,7 +45,7 @@ class Admin_Model extends Model{
     // insert new section
     public function createSection($section_data){
         $new_sec = $this->db->table('sections')
-                 ->insert("(sec_name, sec_logo, sec_user) VALUES(:sec_name,:sec_logo, :sec_user)", $section_data);
+                 ->insert("(sec_name_ar, sec_logo, sec_user) VALUES(:sec_name_ar,:sec_logo, :sec_user)", $section_data);
 
         return $new_sec;
     }
@@ -60,7 +60,7 @@ class Admin_Model extends Model{
     // get all articles
     public function getArticleById($id){
         $art = $this->db->table('articles')
-             ->at("inner join sections on sections.sec_id = articles.acl_section WHERE articles.acl_id = '". $id ."'")->select("articles.*,sections.sec_id, sections.sec_name");
+             ->at("inner join sections on sections.sec_id = articles.acl_section WHERE articles.acl_id = '". $id ."'")->select("articles.*,sections.sec_id, sections.sec_name_ar,sections.sec_name_en,sections.sec_name_tr");
         return $art;
     }
 

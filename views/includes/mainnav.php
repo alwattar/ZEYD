@@ -1,6 +1,7 @@
 
 <section class="searchanddate">
     <div class="container">
+	<form action="<?php echo URL ?>/search" method="get">
         <div class="row">
             <div class="col-lg-3">
 		<span><i class="fa fa-phone"></i> +902125331960</span> | <a href="mailto:info@zaidorg.net?Subject=Hello">info@zaidorg.net</a>
@@ -21,7 +22,8 @@
 		    }
 		    ?>
 		</a>
-		<input type="text" placeholder="<?php echo $ddlang->gn_search; ?> " />
+		    <input type="text" placeholder="<?php echo $ddlang->gn_search; ?> " name="q"/>
+		</form>
             </div>
 	</div>
 	<?php
