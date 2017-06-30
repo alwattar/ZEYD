@@ -2,7 +2,7 @@
 
 define('DEFAULT_LANG','ar');
 define("URL","/ZEYD"); // the base url If the Base is '/' set the value empty define("URL","");
-define("URL_HTTP","http://localhost" . URL); // the all of url of website
+define("URL_HTTP","http://zeyd.org"); // the all of url of website
 
 
 // admin path

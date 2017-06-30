@@ -4,8 +4,6 @@ $pageTitle= $art->acl_title;
 ?>
 <?php include 'includes/header.php'; ?>
 <?php include 'includes/mainnav.php'; ?>
-
-
 <section class="aritcal-post">    
     <div class="page-header">
         <div class="container">

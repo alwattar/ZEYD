@@ -12,6 +12,9 @@
 	<link rel="stylesheet" href="<?php echo CSS_PATH ?>/animate.css">
 	<link rel="stylesheet" href="<?php echo CSS_PATH ?>/iview.css">
 	<link rel="stylesheet" href="<?php echo CSS_PATH ?>/style.css">
+	<meta property="og:title" content="<?php echo $pageTitle ; ?> - <?php echo $this->dlang->siteName ; ?>"/>
+	<meta property="og:url" content="<?php echo URL_HTTP ?><?php echo  $_SERVER['REQUEST_URI'] ?>" />
+	<meta property="og:description" content=""/>
     </head>
 
     <body>
