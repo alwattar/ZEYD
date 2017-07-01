@@ -17,15 +17,15 @@ class Index extends Controller{
                 if($true_email){
                     $subsc = $this->model->subscribe($email);
                     if($subsc === false){
-                        echo "<br/>This Email exists!";
+                        $this->view->subscribe_msg = "<br/>This Email exists!";
                     }else{
-                        echo "Subscribe Done!";
+                        $this->view->subscribe_msg = "Subscribe Done!";
                     }
                 }else{
-                    echo 'Invalid email !!';
+                    $this->view->subscribe_msg = 'Invalid email !!';
                 }
             }else{
-                echo 'Invalid TOKEN !!';
+                $this->view->subscribe_msg = 'Invalid TOKEN !!';
             }
             // generate token
             $this->view->_token = $this->genToken('_token');
@@ -133,7 +133,7 @@ class Index extends Controller{
                 }
                 $this->view->view("section");
             }else{
-                echo "This section not exists<br/>";
+                // echo "This section not exists<br/>";
                 $this->view->view("404"); // you can design page to show results as a nice view
             }
                 
@@ -157,8 +157,8 @@ class Index extends Controller{
                 $this->model->updateArtViews($id,$art[0]->acl_views);  // add 1 view for article
                 $this->view->view("post");
             }else{
-                echo "This article not found<br/>";
-                $this->view->view("404");
+                // echo "This article not found<br/>";
+                $this->view->view("404"); // 404 for article
             }
         }else{
             $this->redirect(URL . '/index');

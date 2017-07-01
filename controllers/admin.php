@@ -61,7 +61,7 @@ class Admin extends Controller{
                             // redirect to dashboard
                             $this->redirect(URL . ADMIN_BASE . '/index');
                         }else{
-                            echo "Not valid";
+                            $this->view->login_msg = "Not valid";
                         }
                     }
                 }
@@ -96,10 +96,10 @@ class Admin extends Controller{
                         $new_section_resp = $this->model->createSection($section_data);
                         if($new_section_resp !== false){
                             // echo $new_section_resp;
-                            echo "<br/> Done";
+                            $this->view->new_section_msg = "<br/> Done";
                         }
                     }else{
-                        echo 'Something went wrong';
+                        $this->view->new_section_msg = 'Something went wrong';  // logo field is empty or section nme empty
                     }
                 }
                 $this->view->_token = $this->genToken('_token');
@@ -296,9 +296,10 @@ class Admin extends Controller{
                                 if($new_acl !== false){
                                     $this->redirect(ADMIN_PATH . "/manage-art#". $id);
                                 }else
-                                    echo "Something went wrong";
+                                    $this->view->edit_article_msg = "Something went wrong";
                             }else{
                                 // something went wrong
+                                $this->view->edit_article_msg = "Something went wrong"; // there is info entered not true
                             }
                         }
                         // regenerate token 
@@ -361,17 +362,17 @@ class Admin extends Controller{
                             // create new user
                             $c_new_user = $this->model->newUser($user_data);
                             if($c_new_user !== false){
-                                echo "Done";
+                                $this->view->new_user_msg = "Done";
                             }else{
-                                echo "<br/>User name exists<br/>";
+                                $this->view->new_user_msg = "<br/>User name exists<br/>";
                             }
                         }else{
                             // not cond satisf
-                            echo "FILL PLEASE<br/>";
+                            $this->view->new_user_msg = "FILL PLEASE<br/>";
                         }
                     }else{
                         // not _token satisf
-                        echo "INVALID TOKEN<br/>";
+                        $this->view->new_user_msg =  "INVALID TOKEN<br/>";
                     }
                     // Regenerate token 
                     $this->view->_token = $this->genToken('_token');
@@ -492,18 +493,18 @@ class Admin extends Controller{
                                         // create new user
                                         $e_new_user = $this->model->editUser($user_data);
                                         if($e_new_user !== false){
-                                            echo "Done<br/>";
+                                            $this->view->edit_user_msg = "Done<br/>";
                                             $this->redirect(URL . ADMIN_BASE . '/manage-users#' . $id);
                                         }else{
-                                            echo "<br/>User name exists<br/>";
+                                            $this->view->edit_user_msg = "<br/>User name exists<br/>";
                                         }
                                     }else{
                                         // not cond satisf
-                                        echo "FILL PLEASE<br/>";
+                                        $this->view->edit_user_msg = "FILL PLEASE<br/>";
                                     }
                                 }else{
                                     // not _token satisf
-                                    echo "INVALID TOKEN<br/>";
+                                    $this->view->edit_user_msg = "INVALID TOKEN<br/>";
                                 }
                                 // regenerate token 
                                 $this->view->_token = $this->genToken('_token');
@@ -561,12 +562,12 @@ class Admin extends Controller{
                         $update_stitle = $this->model->updateStitle($stitle);
                         
                         if($update_statics != false && $update_stitle != false){
-                            echo '<span style="color:green">done</span>';
-                            echo "<script>setTimeout(function(){location.href = '';}, 2000)</script>";
+                            $this->view->update_statics_msg = '<span style="color:green">done</span>';
+                            echo "<script>setTimeout(function(){location.href = '';}, 2400)</script>";
                             // $this->redirect(URL . ADMIN_BASE . '/manage-statics');
                         }
                     }else{
-                        echo 'Invalid token';
+                        $this->view->update_statics_msg = 'Invalid token';
                     }
                     // regenerate token
                     $this->view->_token = $this->genToken('_token');
@@ -623,14 +624,14 @@ class Admin extends Controller{
 
                     $uslider = $this->model->updateSlider($sl);
                     if($uslider !== false){
-                        echo "Done";
+                        $this->view->update_slider_msg = "Done";
                         echo "<script>setTimeout(function(){location.href = '';}, 2000)</script>";
                     }
                     // echo "<pre>";
                     // echo var_dump($uslider);
                     // echo var_dump($_POST);
                 }else{
-                    echo 'Invalid token';
+                    $this->view->update_slider_msg = 'Invalid token';
                 }
                 // regenerate token 
                 $this->view->_token = $this->genToken('_token');
@@ -652,9 +653,10 @@ class Admin extends Controller{
             $id = intval($_GET['del']);
             if($id != 0){
                 $del_slider = $this->model->deleteSliderById($id);
-                echo var_dump($del_slider);
+                // echo var_dump($del_slider);
                 if($del_slider != false || $del_slider != null){
-                    echo "Deleted";
+                    /// echo "Deleted";
+                    // maybe we will add confirmation here
                     $this->redirect(URL . ADMIN_BASE . '/manage-sliders');
                 }
             }
@@ -685,14 +687,14 @@ class Admin extends Controller{
                     // print_r($_POST);
                     $nslider = $this->model->newSlider($sl);
                     if($nslider !== false){
-                        echo "New Slider Created";
+                        $this->view->new_slider_msg = "New Slider Created";
                         echo "<script>setTimeout(function(){location.href = '';}, 2000)</script>";
                     }
                     // echo "<pre>";
                     // echo var_dump($uslider);
                     // echo var_dump($_POST);
                 }else{
-                    echo 'Invalid token : New slider';
+                    $this->view->new_slider_msg = 'Invalid token : New slider';
                 }
                 // regenerate token 
                 $this->view->_token = $this->genToken('_token');
@@ -716,7 +718,7 @@ class Admin extends Controller{
 
                     $update_ab = $this->model->updateAbout($content,$the_lang);
                     if($update_ab == false){
-                        echo "Unale to update about";
+                        $this->view->update_about_msg = "Unale to update about";
                     }
                 }
                 // regenerate token 
