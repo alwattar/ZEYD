@@ -31,7 +31,7 @@ $pageTitle= $sec['sec_name_'. $_SESSION['dlang']];
 			?>
 			<p><?php echo $content ?></p>
 			<p><i class="fa fa-calendar"></i> <?php echo strip_tags(stripslashes($art->acl_date)) ?></p>
-			<p><i class="fa fa-tag"></i><a href="<?php echo URL ?>/section&sec=<?php echo $sec->sec_id ?>"><?php echo strip_tags(stripslashes($sec['sec_name_' . $_SESSION['dlang']])) ?></a></p>
+			<p><i class="fa fa-tag"></i><a href="<?php echo URL ?>/section&sec=<?php echo $sec['sec_id'] ?>"><?php echo strip_tags(stripslashes($sec['sec_name_' . $_SESSION['dlang']])) ?></a></p>
 	            </div>
 		<?php } ?>
 	    </div>

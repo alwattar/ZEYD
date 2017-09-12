@@ -42,7 +42,7 @@ class Index_Model extends Model{
     // get all artiles as Sessio lang
     public function getArticles($id){
         return $this->db->table('articles')
-            ->at('where acl_section = ' . $id . ' and acl_lang = "' . $_SESSION["dlang"] . '"')
+            ->at('where acl_section = ' . $id . ' and acl_lang = "' . $_SESSION["dlang"] . '" order by acl_date desc')
             ->select('acl_id, acl_section, acl_title, acl_img, acl_content,acl_date,acl_user');
     }
 

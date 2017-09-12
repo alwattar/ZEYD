@@ -1,8 +1,8 @@
 
-    
-	<footer class="hidden-xs">
-        <div class="container ">
-            <div class="row ">
+
+<footer class="hidden-xs">
+    <div class="container ">
+        <div class="row ">
             <div class="col-md-4 pull-right col-xs-12">
                 <div class="footer-social">
                     <h3><?php echo $ddlang->footer_Follow ;?> </h3>
@@ -65,32 +65,34 @@
         <div class="text-center copyrightfooter">
             ZEYD BİN SABİT DERNĞİ <span style="color:#828282;">© 2012 -  <?php echo date("Y"); ?></span>
         </div>
-        </div>
-        
-        
-    </footer>
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'>
+    </div>
+    
+    
+</footer>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'>
 </script>
-	<script src="<?php echo JS_PATH ?>/bootstrap.min.js"></script>
-	<script src="<?php echo JS_PATH ?>/npm.js"></script>
-	<script src="<?php echo JS_PATH ?>/wow.min.js"></script>
-	<script src="<?php echo JS_PATH ?>/main.js"></script>
-	<script src="<?php echo JS_PATH ?>/raphael-min.js"></script>
-        <script src="<?php echo JS_PATH ?>/jquery.easing.js"></script>
-        <script src="<?php echo JS_PATH ?>/iview.js"></script>
-        <script>
-	 $(document).ready(function(){
-	     $('#iview').iView({
-		 pauseTime: 3500,
-		 directionNav: false,
-		 controlNav: false,
-		 tooltipY: -15
-	     });
-	 });
-         
-        </script>
-        
-	
+<script src="<?php echo JS_PATH ?>/bootstrap.min.js"></script>
+<script src="<?php echo JS_PATH ?>/bootstrap.min.js"></script>
+<script src="<?php echo JS_PATH ?>/bootstrap-datetimepicker.min.js"></script>
+<script src="<?php echo JS_PATH ?>/npm.js"></script>
+<script src="<?php echo JS_PATH ?>/wow.min.js"></script>
+<script src="<?php echo JS_PATH ?>/main.js"></script>
+<script src="<?php echo JS_PATH ?>/raphael-min.js"></script>
+<script src="<?php echo JS_PATH ?>/jquery.easing.js"></script>
+<script src="<?php echo JS_PATH ?>/iview.js"></script>
+<script>
+ $(document).ready(function(){
+     $('#iview').iView({
+	 pauseTime: 3500,
+	 directionNav: false,
+	 controlNav: false,
+	 tooltipY: -15
+     });
+ });
+ 
+</script>
+
+
     </body>
 
 </html>

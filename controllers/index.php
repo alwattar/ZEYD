@@ -72,12 +72,22 @@ class Index extends Controller{
         $this->getAllSections();
 
         // Articel of section
+        // $acls = $this->model->getArticles(2);
+        // foreach($acls as $k => $v){
+        //     $date_vc = strtotime(str_ireplace("/", "-", $v->acl_date));
+        //     echo var_dump(date('Y-m-d', $date_vc));
+        // }
+        // echo var_dump("--------");
+        // foreach($acls as $k => $v){
+        //     echo var_dump($v->acl_date);
+        // }
         $this->view->a_o_s = function($section_id){
             // all artiles
             // acls == articles
             $acls = $this->model->getArticles($section_id);
-            if($acls !== false && is_array($acls))  // if acls > 0
+            if($acls !== false && is_array($acls)){  // if acls > 0
                 $acls = $acls;
+            }
             else  // if acls == 0
                 $acls = [];
             return $acls;
